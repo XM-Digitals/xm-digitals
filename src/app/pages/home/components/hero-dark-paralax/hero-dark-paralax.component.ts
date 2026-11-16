@@ -229,7 +229,7 @@ export class HeroDarkParalaxComponent implements OnDestroy {
         float dots = cellNoise(finalUv * vec2(150.0 * imgAspect, 150.0));
         float mask = dots * flow;
 
-        vec3 scanColor = vec3(227.0 / 255.0, 255.0 / 255.0, 4.0 / 255.0);
+        vec3 scanColor = vec3(176.0 / 255.0, 38.0 / 255.0, 255.0 / 255.0);
         vec3 glowDots = scanColor * mask * 3.5;
         vec3 glowArea = scanColor * flow * 0.3;
 
