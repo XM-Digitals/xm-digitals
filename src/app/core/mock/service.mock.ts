@@ -16,9 +16,65 @@ export const MOCK_SERVICE = {
       banner: 'assets/images/xm-creative-big.png',
       ctaTitle:'Talk to Our Creative Team',
       ctaUrl: 'https://wa.me/081806603068?text=XM%20Creative',
-      titleContent: '',
-      content: null,
-      serviceCluster: null
+      titleContent: 'Where Strategic Design Meets Distinctive Brand Experiences',
+      content: `
+        <p><b>XM Creative</b> helps businesses build strong, recognizable digital presences through brand identity, UI/UX design, and visual systems crafted to engage modern audiences. We focus on clarity, usability, and cohesive aesthetics that elevate how customers perceive and interact with your brand across every touchpoint.</p>
+        <p>Working closely with product and marketing teams, we translate business positioning into intuitive interfaces, scalable design systems, and compelling digital assets. Our approach ensures every creative decision balances visual impact with functional simplicity and brand consistency.</p>
+        <p>Our creative capabilities cover the full spectrum of digital brand experience — from foundational visual identity to interactive product interfaces and campaign assets.</p>
+      `,
+      serviceCluster: 
+      [
+        {
+          title: 'Core Creative & Design Capabilities',
+          serviceSubCluster: [
+            {
+              title: 'Brand Identity & Visual Guidelines',
+              description: 'Logo architecture, color systems, typography, and comprehensive brand books that keep your company recognizable across every touchpoint.',
+              link: [
+                {
+                  ctaTitle: 'Discuss Brand Identity',
+                  ctaUrl: 'https://wa.me/081806603068?text=Brand%20&%20Identity'
+                }
+              ],
+              customBg: null
+            },
+            {
+              title: 'UI/UX Design & Interactive Prototyping',
+              description: 'User-centered wireframes, high-fidelity interface designs, and clickable prototypes engineered for seamless web and mobile user journeys.',
+              link: [
+                {
+                  ctaTitle: 'Explore UI/UX Design',
+                  ctaUrl: 'https://wa.me/081806603068?text=UI/UX%20Design'
+                }
+              ],
+              customBg: null
+            },
+            {
+              title: 'Design Systems & Component Libraries',
+              description: 'Scalable, developer-ready Figma UI kits and design tokens that accelerate product engineering and maintain visual consistency as your platform grows.',
+              link: [
+                {
+                  ctaTitle: 'Build a Design System',
+                  ctaUrl: 'https://wa.me/081806603068?text=Design%20System'
+                }
+              ],
+              customBg: null
+            },
+            {
+              title: 'Digital Campaign & Motion Assets',
+              description: 'High-impact social media visuals, interactive web graphics, and product launch creative assets tailored to elevate your brand perception.',
+              link: [
+                {
+                  ctaTitle: 'Start a Creative Campaign',
+                  ctaUrl: 'https://wa.me/081806603068?text=Creative%20Campaign'
+                }
+              ],
+              customBg: null
+            }
+          ],
+          customCol: 'col-lg-6'
+        }
+      ],
     },
     {
       slug: 'xm-tech',
@@ -165,6 +221,34 @@ export const MOCK_SERVICE = {
             }
           ],
           customCol: null
+        },
+        {
+          title: 'Security & Compliance Capabilities',
+          serviceSubCluster: [
+            {
+              title: 'Anti-REA & Application Shielding',
+              description: 'Runtime application self-protection (RASP) and anti-reverse engineering defense designed to safeguard web, mobile, and API assets against decompilation, tampering, scraping, and unauthorized logic extraction.',
+              link: [
+                {
+                  ctaTitle: 'Talk With Us',
+                  ctaUrl: 'https://wa.me/081806603068?text=Anti%20REA%20%26%20Application%20Shielding'
+                }
+              ],
+              customBg: 'bg-smoke'
+            },
+            {
+              title: 'Application Security & SAST Auditing',
+              description: 'Comprehensive static application security testing (SAST), dependency license auditing, and vulnerability remediation to ensure enterprise applications meet strict security and compliance global standards.',
+              link: [
+                {
+                  ctaTitle: 'Talk With Us',
+                  ctaUrl: 'https://wa.me/081806603068?text=Application%20Security%20%26%20SAST%20Auditing'
+                }
+              ],
+              customBg: 'bg-smoke'
+            }
+          ],
+          customCol: null
         }
       ]
     },
@@ -178,9 +262,65 @@ export const MOCK_SERVICE = {
       banner: 'assets/images/xm-ai-big.png',
       ctaTitle:'Talk to Our AI Team',
       ctaUrl: 'https://wa.me/081806603068?text=XM%20AI',
-      titleContent: '',
-      content: null,
-      serviceCluster: null
+      titleContent: 'Where Practical Intelligence Meets Operational Efficiency',
+      content: `
+        <p><b>XM AI</b> helps businesses automate, optimize, and scale operations through practical artificial intelligence solutions tailored to real-world workflows. Rather than unnecessary complexity, we focus on intelligent systems, automated auditing, and seamless AI integration that eliminate operational bottlenecks.</p>
+        <p>Working closely with operational and technical teams, we build and integrate domain-trained AI assistants, recommendation engines, and automated workflows directly into your existing infrastructure. Every implementation is engineered with strict data privacy, cost control, and measurable business outcomes in mind.</p>
+        <p>Our AI capabilities cover the full lifecycle of enterprise AI adoption — from intelligent decision engines and automated audit systems to workflow orchestration and private enterprise deployment.</p>
+      `,
+      serviceCluster: [
+        {
+          title: 'Intelligent & AI-Powered Systems',
+          serviceSubCluster: 
+          [
+            {
+              title: 'Custom AI Agents & RAG Knowledge Assistants',
+              description: 'Domain-grounded conversational assistants connected securely to your internal SOPs, product catalogs, and databases for accurate support and instant lookup.',
+              customBg: null,
+              link: [
+                {
+                  ctaTitle: 'Deploy an AI Assistant',
+                  ctaUrl: 'https://wa.me/081806603068?text=Custom%20AI%20Agent%20Automation'
+                }
+              ]
+            },
+            {
+              title: 'End-to-End AI Workflow Automation',
+              description: 'Automated pipelines connecting your CRM, messaging channels, email, and internal APIs to eliminate repetitive manual operations and daily work.',
+              customBg: null,
+              link: [
+                {
+                  ctaTitle: 'Automate Your Workflows',
+                  ctaUrl: 'https://wa.me/081806603068?text=End%20to%20End%20AI%20Workflow%20Automation'
+                }
+              ]
+            },
+            {
+              title: 'Multi-Model Orchestration & Private Deployment',
+              description: 'Flexible integration of leading commercial LLMs or self-hosted open-weights models on your private cloud—giving you full data control without building models from scratch.',
+              customBg: null,
+              link: [
+                {
+                  ctaTitle: 'Consult AI Architecture',
+                  ctaUrl: 'https://wa.me/081806603068?text=Consult%20AI%20Architecture'
+                }
+              ]
+            },
+            {
+              title: 'AI Security, Privacy & Governance Guardrails',
+              description: 'PII data masking, prompt-injection protection, access control, and token-usage governance to ensure safe, compliant enterprise AI adoption.',
+              customBg: null,
+              link: [
+                {
+                  ctaTitle: 'Secure Your AI Stack',
+                  ctaUrl: 'https://wa.me/081806603068?text=Secure%20Your%20AI%20Stack'
+                }
+              ]
+            }
+          ],
+          customCol: 'col-lg-6'
+        }
+      ],
     },
     {
       slug: 'xm-growth',
@@ -192,9 +332,65 @@ export const MOCK_SERVICE = {
       banner: 'assets/images/xm-growth-big.png',
       ctaTitle:'Talk to Our Growth Team',
       ctaUrl: 'https://wa.me/081806603068?text=XM%20Growth',
-      titleContent: '',
-      content: null,
-      serviceCluster: null
+      titleContent: 'Where Data-Driven Strategy Meets Sustainable Digital Growth',
+      content: `
+        <p><b>XM Growth</b> helps businesses reach, engage, and convert high-intent audiences through structured digital growth strategies engineered for measurable revenue impact. We focus on technical search visibility, conversion optimization, and targeted acquisition channels that turn digital platforms into consistent growth engines.</p>
+        <p>Working closely with leadership and marketing teams, we combine search architecture, funnel experimentation, and performance analytics to optimize every stage of the customer journey. Our approach ensures growth initiatives remain transparent, scalable, and focused on long-term return on investment.</p>
+        <p>Our growth capabilities cover the full acquisition and conversion lifecycle — from technical SEO and content roadmaps to conversion rate optimization and performance campaigns.</p>
+      `,
+      serviceCluster: 
+      [
+        {
+          title: 'Core Growth & Acquisition Capabilities',
+          serviceSubCluster: [
+            {
+              title: 'Technical SEO & Search Visibility',
+              description: 'Core Web Vitals optimization, semantic site architecture, SSR/prerender readiness, and keyword strategies that drive compounding organic traffic.',
+              customBg: null,
+              link: [
+                {
+                  ctaTitle: 'Boost Organic Visibility',
+                  ctaUrl: 'https://wa.me/081806603068?text=SEO%20Consultation'
+                }
+              ]
+            },
+            {
+              title: 'Conversion Rate Optimization (CRO)',
+              description: 'Funnel audits, landing page experimentation, and user behavior analytics designed to turn existing traffic into qualified leads and sales.',
+              customBg: null,
+              link: [
+                {
+                  ctaTitle: 'Optimize Your Funnel',
+                  ctaUrl: 'https://wa.me/081806603068?text=CRO%20Consultation'
+                }
+              ]
+            },
+            {
+              title: 'Performance Marketing & Paid Acquisition',
+              description: 'Targeted search and social ad campaigns managed with transparent attribution and continuous return-on-ad-spend optimization.',
+              customBg: null,
+              link: [
+                {
+                  ctaTitle: 'Scale Paid Acquisition',
+                  ctaUrl: 'https://wa.me/081806603068?text=Performance%20Marketing%20Consultation'
+                }
+              ]
+            },
+            {
+              title: 'Content & Digital Funnel Strategy',
+              description: 'Structured multi-channel content roadmaps and lead-nurturing journeys built to guide prospects from initial awareness to action.',
+              customBg: null,
+              link: [
+                {
+                  ctaTitle: 'Plan Your Growth Strategy',
+                  ctaUrl: 'https://wa.me/081806603068?text=Content%20Strategy%20Consultation'
+                }
+              ]
+            }
+          ],
+          customCol: 'col-lg-6'
+        }
+      ],
     }
   ]
 }

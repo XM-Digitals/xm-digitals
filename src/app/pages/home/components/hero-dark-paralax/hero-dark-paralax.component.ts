@@ -13,7 +13,7 @@ import {
 import { RouterModule } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import * as THREE from 'three';
-import { HERO_BASE64_COLOR, HERO_BASE64_DEPTH } from '../../../domain/hero-textures.data';
+import { HERO_BASE64_COLOR, HERO_BASE64_DEPTH } from '../../../../core/mock/hero-paralax-home.mock';
 
 @Component({
   selector: 'app-hero-dark-paralax',

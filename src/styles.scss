@@ -2938,6 +2938,7 @@ input.is-invalid {
 		color: $color_5;
 		outline: none;
 		box-shadow: none;
+		background-color: var(--title-color);
 		.effect-1 {
 			top: -100%;
 		}
