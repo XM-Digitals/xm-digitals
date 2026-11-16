@@ -46,6 +46,16 @@ export const routes: Routes = [
         import('./pages/about-us/landing/about-us/about-us.component').then(c => c.AboutUsComponent),
       },
       {
+        path: 'contact-us',
+        loadComponent: () =>
+        import('./pages/contact-us/landing/contact-us/contact-us.component').then(c => c.ContactUsComponent),
+      },
+      {
+        path: 'sitemap',
+        loadComponent: () =>
+        import('./pages/sitemap/landing/sitemap/sitemap.component').then(c => c.SitemapComponent),
+      },
+      {
         path: 'error-404',
         loadComponent: () =>
         import('./pages/error/landing/error-404/error-404.component').then(c => c.Error404Component),
