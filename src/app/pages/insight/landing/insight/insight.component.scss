@@ -1,9 +1,15 @@
 .landing-insight {
-  .sec-title {
-    font-size: 54px;
 
-    @media (max-width: 991px) {
-      font-size: 36px;
+  .blog-area {
+    .blog-img {
+      height: 450px;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
+
 }

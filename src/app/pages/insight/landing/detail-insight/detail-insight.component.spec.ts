@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UseCasesComponent } from './use-cases.component';
+import { DetailInsightComponent } from './detail-insight.component';
 
-describe('UseCasesComponent', () => {
-  let component: UseCasesComponent;
-  let fixture: ComponentFixture<UseCasesComponent>;
+describe('DetailInsightComponent', () => {
+  let component: DetailInsightComponent;
+  let fixture: ComponentFixture<DetailInsightComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UseCasesComponent]
+      imports: [DetailInsightComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UseCasesComponent);
+    fixture = TestBed.createComponent(DetailInsightComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -11,21 +11,6 @@ export const routes: Routes = [
         import('./pages/home/landing/home/home.component').then(c => c.HomeComponent)
       },
       {
-        path: 'use-cases',
-        children: [
-          {
-            path: '',
-            pathMatch: 'full',
-            redirectTo: '/'
-          },
-          {
-            path: ':slug',
-            loadComponent: () =>
-            import('./pages/use-cases/landing/use-cases/use-cases.component').then(c => c.UseCasesComponent)
-          }
-        ]
-      },
-      {
         path: 'services',
         children: [
           {
@@ -46,10 +31,26 @@ export const routes: Routes = [
         ]
       },
       {
-        path: 'insight',
+    path: 'insight',
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
         loadComponent: () =>
-        import('./pages/insight/landing/insight/insight.component').then(c => c.InsightComponent),
+          import('./pages/insight/landing/insight/insight.component').then(c => c.InsightComponent),
       },
+      // {
+      //   path: 'category/:category',
+      //   loadComponent: () =>
+      //     import('./pages/insight/landing/insight/insight.component').then(c => c.InsightComponent),
+      // },
+      {
+        path: ':slug',
+        loadComponent: () =>
+          import('./pages/insight/landing/detail-insight/detail-insight.component').then(c => c.DetailInsightComponent),
+      },
+    ],
+  },
       {
         path: 'about-us',
         loadComponent: () =>

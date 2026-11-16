@@ -9,14 +9,14 @@
           <div class="title-area mb-45">
             <h2 class="sec-title">
               <img class="icon" src="assets/images/icon/location-pin-alt.svg" alt="XM Digitals - Usecase">
-              Use Case
+              {{ getInsight.data[0].category }}
             </h2>
           </div>
           <h3>{{ getInsight.data[0].title }}</h3>
           <p>{{ getInsight.data[0].description }}</p>
           <h4>{{ getInsight.data[0].outcomeTitle }}</h4>
           <p>{{ getInsight.data[0].outcomeDescription }}</p>
-          <a [routerLink]="`/use-cases/${getInsight.data[0].slug}`" class="btn mt-20">
+          <a [routerLink]="`/insight/${getInsight.data[0].slug}`" class="btn mt-20">
             <span class="link-effect">
               <span class="effect-1">Read More</span>
               <span class="effect-1">Read More</span>

@@ -7,13 +7,13 @@ import { MOCK_INSIGHT } from '../../../../core/mock/insight.mock';
 import { Insight } from '../../../../core/model/insight.model';
 
 @Component({
-  selector: 'app-use-cases',
+  selector: 'app-detail-insight',
   imports: [RouterLink, HeroComponent],
-  templateUrl: './use-cases.component.html',
-  styleUrl: './use-cases.component.scss',
+  templateUrl: './detail-insight.component.html',
+  styleUrl: './detail-insight.component.scss',
   encapsulation: ViewEncapsulation.None
 })
-export class UseCasesComponent implements OnInit {
+export class DetailInsightComponent implements OnInit {
   insight?: Insight;
 
   constructor(
@@ -42,8 +42,8 @@ export class UseCasesComponent implements OnInit {
   private seoUpdate(insight: Insight): void {
     if (!insight) return;
 
-    const pageTitle = insight.metaTitle || 'Use Cases';
-    const pageDesc = insight.metaDescription || 'Read our use cases.';
+    const pageTitle = insight.metaTitle || 'Insight';
+    const pageDesc = insight.metaDescription || 'Read our latest insights.';
     const pageImage = insight.banner || 'xmdigitals.com';
     const datePublished = new Date().toISOString(); 
 
@@ -81,5 +81,4 @@ export class UseCasesComponent implements OnInit {
       schema: schemaData
     });
   }
-
 }

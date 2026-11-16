@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { SeoService } from '../../../../shared/services/seo.service';
+import { LIST_MOCK_INSIGHT } from '../../../../core/mock/insight.mock';
+import { ListInsight } from '../../../../core/model/insight.model';
 
 @Component({
   selector: 'app-insight',
@@ -10,9 +12,13 @@ import { SeoService } from '../../../../shared/services/seo.service';
   styleUrl: './insight.component.scss'
 })
 export class InsightComponent implements OnInit {
+  listInsights?: ListInsight[];
+
   constructor(private seo: SeoService){}
 
   ngOnInit(): void {
+    this.listInsights = LIST_MOCK_INSIGHT.data;
+
     const schemaData = {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
