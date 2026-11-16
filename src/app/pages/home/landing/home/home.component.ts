@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
-import { HeroDarkComponent } from '../../components/hero-dark/hero-dark.component';
+import { HeroDarkParalaxComponent } from '../../components/hero-dark-paralax/hero-dark-paralax.component';
 import { SectionServiceComponent } from '../../components/section-service/section-service.component';
 import { SectionUsecaseComponent } from '../../components/section-usecase/section-usecase.component';
 import { SectionWhyusComponent } from '../../components/section-whyus/section-whyus.component';
@@ -14,7 +14,7 @@ import { MOCK_WHYUS } from '../../../../core/mock/why-us.mock';
 
 @Component({
   selector: 'app-home',
-  imports: [HeroDarkComponent, SectionServiceComponent, SectionUsecaseComponent, SectionWhyusComponent],
+  imports: [HeroDarkParalaxComponent, SectionServiceComponent, SectionUsecaseComponent, SectionWhyusComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   encapsulation: ViewEncapsulation.None
