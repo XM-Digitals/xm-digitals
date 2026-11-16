@@ -404,7 +404,7 @@ export const MOCK_DETAIL_SERVICE = {
     {
       banner: 'assets/images/xm-digitals-web-development-jakarta.jpg',
       slug: 'xm-tech',
-      detailSlug: 'web-development-jakarta-detail',
+      detailSlug: 'web-development-jakarta',
       title: 'Web Development Services in Jakarta',
       description: 'XM Digitals provides professional web development services in Jakarta for businesses that need reliable, secure, and scalable websites. We help organizations build digital platforms that support branding, marketing, and real operational needs — not just visual presence.',
       metaTitle: 'Web Development Services in Jakarta | Professional Website Development | XM Digitals',
