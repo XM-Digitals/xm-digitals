@@ -4,7 +4,6 @@ on:
   push:
     branches: [ master ]
 
-# Memberikan izin tulis ke GITHUB_TOKEN untuk push ke branch gh-pages
 permissions:
   contents: write
 
@@ -30,15 +29,14 @@ jobs:
 
     - name: Prepare GitHub Pages output & CNAME
       run: |
-        if [ -d "dist/xmdigitals/browser" ]; then
-          PUBLISH_PATH="dist/xmdigitals/browser"
+        if [ -d "docs/browser" ]; then
+          PUBLISH_PATH="docs/browser"
         else
-          PUBLISH_PATH="dist/xmdigitals"
+          PUBLISH_PATH="docs"
         fi
         echo "📁 Publishing from: $PUBLISH_PATH"
         ls -la "$PUBLISH_PATH"
         echo "xmdigitals.com" > "$PUBLISH_PATH/CNAME"
-        # Salin index.html ke 404.html agar routing Angular SPA tidak 404 saat di-refresh langsung di sub-rute
         cp "$PUBLISH_PATH/index.html" "$PUBLISH_PATH/404.html"
         echo "PUBLISH_DIR=$PUBLISH_PATH" >> $GITHUB_ENV
 
