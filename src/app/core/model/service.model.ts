@@ -50,6 +50,7 @@ export interface GetDetailService {
 export interface DetailService {
   banner: string;
   slug: string;
+  detailSlug: string;
   title: string;
   description: string;
   metaTitle: string;

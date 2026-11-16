@@ -24,10 +24,10 @@ export class DetailServicesComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      const slug = params.get('detailSlug');
+      const detailSlug = params.get('detailSlug');
 
       this.detailService = MOCK_DETAIL_SERVICE.data.find(
-        detailService => detailService.slug === slug
+        detailService => detailService.detailSlug === detailSlug
       );
 
       if (!this.detailService) {
@@ -45,7 +45,7 @@ export class DetailServicesComponent implements OnInit {
     const pageTitle = detailService.metaTitle || 'Service Detail';
     const pageDesc = detailService.metaDescription || 'Default description for XM Digitals services.';
     const pageImage = detailService.banner || 'assets/images/logo-xm.png';
-    const pageUrl = `https://xmdigitals.com/services/xm-tech/${detailService.slug}`
+    const pageUrl = `https://xmdigitals.com/services/${detailService.slug}/${detailService.detailSlug}`
 
     const schemaData = {
       "@context": "https://schema.org",

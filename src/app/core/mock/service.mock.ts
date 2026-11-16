@@ -403,7 +403,8 @@ export const MOCK_DETAIL_SERVICE = {
   data: [
     {
       banner: 'assets/images/xm-digitals-web-development-jakarta.jpg',
-      slug: 'web-development-jakarta',
+      slug: 'xm-tech',
+      detailSlug: 'web-development-jakarta-detail',
       title: 'Web Development Services in Jakarta',
       description: 'XM Digitals provides professional web development services in Jakarta for businesses that need reliable, secure, and scalable websites. We help organizations build digital platforms that support branding, marketing, and real operational needs — not just visual presence.',
       metaTitle: 'Web Development Services in Jakarta | Professional Website Development | XM Digitals',
@@ -445,7 +446,8 @@ export const MOCK_DETAIL_SERVICE = {
     },
     {
       banner: 'assets/images/xm-digitals-cms-development.jpg',
-      slug: 'cms-development',
+      slug: 'xm-tech',
+      detailSlug: 'cms-development',
       title: 'CMS Development Services',
       description: 'XM Digitals provides CMS development services that help organizations manage, scale, and distribute content efficiently across digital platforms. We build custom CMS solutions tailored to editorial workflows, business operations, and long-term scalability.',
       metaTitle: 'Custom CMS Development Services | Scalable Content Platforms | XM Digitals',
@@ -498,7 +500,8 @@ export const MOCK_DETAIL_SERVICE = {
     },
     {
       banner: 'assets/images/xm-digitals-saas-platform-development.jpg',
-      slug: 'saas-platform',
+      slug: 'xm-tech',
+      detailSlug: 'saas-platform',
       title: 'SaaS Platform Development Services',
       description: 'XM Digitals provides SaaS platform development services for businesses building scalable, secure, and multi-tenant digital products. We help organizations design and develop software platforms that support growth, operational efficiency, and long-term product evolution.',
       metaTitle: 'SaaS Platform Development Services | XM Digitals',
@@ -551,7 +554,8 @@ export const MOCK_DETAIL_SERVICE = {
     },
     {
       banner: 'assets/images/xm-digitals-erp-crm-development.jpg',
-      slug: 'erp-crm',
+      slug: 'xm-tech',
+      detailSlug: 'erp-crm',
       title: 'ERP & CRM Development Services',
       description: 'XM Digitals delivers custom ERP and CRM development services to help organizations manage operations, customer relationships, and business data through integrated, reliable systems. We build enterprise platforms designed to support real workflows, improve visibility, and scale as business complexity grows.',
       metaTitle: 'ERP & CRM Development Services | Custom Business Systems | XM Digitals',
@@ -603,7 +607,8 @@ export const MOCK_DETAIL_SERVICE = {
     },
     {
       banner: 'assets/images/xm-digitals-mobile-native-apps-development.jpg',
-      slug: 'mobile-native-apps',
+      slug: 'xm-tech',
+      detailSlug: 'mobile-native-apps',
       title: 'Mobile Native App Development Services',
       description: 'XM Digitals delivers mobile native app development services for iOS and Android, helping businesses build reliable, high-performance mobile applications. Our apps are engineered for scalability, security, and real-world usage — not just visual appeal.',
       metaTitle: 'Mobile Native App Development Services | iOS & Android Apps | XM Digitals',
@@ -661,7 +666,8 @@ export const MOCK_DETAIL_SERVICE = {
     },
     {
       banner: 'assets/images/xm-digitals-mobile-hybrid-apps-development.jpg',
-      slug: 'mobile-hybrid-apps',
+      slug: 'xm-tech',
+      detailSlug: 'mobile-hybrid-apps',
       title: 'Mobile Hybrid App Development Services',
       description: 'XM Digitals delivers mobile hybrid app development services for businesses that need efficient, cross-platform mobile applications. We build hybrid apps designed to balance performance, scalability, and development efficiency across iOS and Android platforms.',
       metaTitle: 'Mobile Hybrid App Development Services | Cross-Platform Apps | XM Digitals',

@@ -14,6 +14,11 @@ export const routes: Routes = [
         path: 'use-cases',
         children: [
           {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: '/'
+          },
+          {
             path: ':slug',
             loadComponent: () =>
             import('./pages/use-cases/landing/use-cases/use-cases.component').then(c => c.UseCasesComponent)
@@ -23,6 +28,11 @@ export const routes: Routes = [
       {
         path: 'services',
         children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: '/'
+          },
           {
             path: ':slug',
             loadComponent: () =>
