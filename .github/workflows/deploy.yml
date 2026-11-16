@@ -4,6 +4,7 @@ on:
   push:
     branches: [ master ]
 
+# Izin tulis agar GITHUB_TOKEN dapat melakukan push ke branch gh-pages
 permissions:
   contents: write
 
@@ -24,21 +25,41 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Build Angular project
-      run: npm run build -- --configuration=production --base-href=/
+    - name: Build Angular with Prerender
+      run: npx ng build --configuration production --prerender --base-href=/
 
-    - name: Prepare GitHub Pages output & CNAME
+    - name: Prepare GitHub Pages output & verify SEO Prerender
       run: |
-        if [ -d "docs/browser" ]; then
-          PUBLISH_PATH="docs/browser"
-        else
-          PUBLISH_PATH="docs"
+        SRC="dist/xmdigitals/browser"
+        if [ ! -d "$SRC" ]; then
+          SRC="dist/xmdigitals"
         fi
-        echo "📁 Publishing from: $PUBLISH_PATH"
-        ls -la "$PUBLISH_PATH"
-        echo "xmdigitals.com" > "$PUBLISH_PATH/CNAME"
-        cp "$PUBLISH_PATH/index.html" "$PUBLISH_PATH/404.html"
-        echo "PUBLISH_DIR=$PUBLISH_PATH" >> $GITHUB_ENV
+
+        echo "📁 Sumber build: $SRC"
+        ls -la "$SRC"
+
+        # Lindungi index.html hasil prerender agar tidak tertimpa index.csr.html
+        if [ ! -f "$SRC/index.html" ] && [ -f "$SRC/index.csr.html" ]; then
+          mv "$SRC/index.csr.html" "$SRC/index.html"
+        fi
+
+        # Buat CNAME, 404 fallback untuk SPA routing, dan .nojekyll
+        echo "xmdigitals.com" > "$SRC/CNAME"
+        if [ -f "$SRC/index.csr.html" ]; then
+          cp "$SRC/index.csr.html" "$SRC/404.html"
+        else
+          cp "$SRC/index.html" "$SRC/404.html"
+        fi
+        touch "$SRC/.nojekyll"
+
+        # Verifikasi folder hasil prerender SEO
+        if [ -d "$SRC/about-us" ]; then
+          echo "✅ SUCCESS: Folder about-us ditemukan. SEO Prerender Aktif!"
+        else
+          echo "⚠️ WARNING: Folder about-us TIDAK ditemukan. Pastikan rute terdaftar untuk prerender."
+        fi
+
+        echo "PUBLISH_DIR=$SRC" >> $GITHUB_ENV
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
