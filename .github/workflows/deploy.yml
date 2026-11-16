@@ -4,40 +4,47 @@ on:
   push:
     branches: [ master ]
 
+# Memberikan izin tulis ke GITHUB_TOKEN untuk push ke branch gh-pages
+permissions:
+  contents: write
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
-      
+      uses: actions/checkout@v4
+
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
-        
+
     - name: Install dependencies
       run: npm ci
-      
+
     - name: Build Angular project
       run: npm run build -- --configuration=production --base-href=/
-      # atau: npx ng build --configuration=production --base-href=/
-      
-    - name: Verify build output
+
+    - name: Prepare GitHub Pages output & CNAME
       run: |
-        echo "📁 Build output:"
-        ls -la dist/xmdigitals/
-        echo "📄 File index.html:"
-        ls -la dist/xmdigitals/index.html || echo "Index.html not found!"
-      
-    - name: Create CNAME file
-      run: echo "xmdigitals.com" > dist/xmdigitals/CNAME
-      
+        if [ -d "dist/xmdigitals/browser" ]; then
+          PUBLISH_PATH="dist/xmdigitals/browser"
+        else
+          PUBLISH_PATH="dist/xmdigitals"
+        fi
+        echo "📁 Publishing from: $PUBLISH_PATH"
+        ls -la "$PUBLISH_PATH"
+        echo "xmdigitals.com" > "$PUBLISH_PATH/CNAME"
+        # Salin index.html ke 404.html agar routing Angular SPA tidak 404 saat di-refresh langsung di sub-rute
+        cp "$PUBLISH_PATH/index.html" "$PUBLISH_PATH/404.html"
+        echo "PUBLISH_DIR=$PUBLISH_PATH" >> $GITHUB_ENV
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist/xmdigitals
+        publish_dir: ${{ env.PUBLISH_DIR }}
         enable_jekyll: false
