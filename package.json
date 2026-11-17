@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "prebuild": "tsc scripts/generate-sitemap.ts --module commonjs --moduleResolution node --esModuleInterop --outDir .tmp-scripts && node .tmp-scripts/scripts/generate-sitemap.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:xmdigitals": "node dist/xmdigitals/server/server.mjs"
