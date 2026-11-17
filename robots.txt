@@ -1,13 +1,16 @@
 User-agent: *
 Allow: /
 
-# Block unnecessary system paths
-Disallow: /assets/
+# Block unnecessary system & data paths
 Disallow: /api/
 Disallow: /*.json$
 
-# Tambahan untuk kontrol AI (Opsional)
-Content-signal: search=yes,ai-train=no
+# Kontrol AI Crawler (Opsional - Standar IETF / Cloudflare)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
 
 # Sitemap location
 Sitemap: https://xmdigitals.com/sitemap.xml
