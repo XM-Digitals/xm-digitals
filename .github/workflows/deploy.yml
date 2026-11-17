@@ -26,7 +26,7 @@ jobs:
       run: npm ci
 
     - name: Build Angular with Prerender
-      run: npx ng build --configuration production --prerender --base-href=/
+      run: npm run build -- --configuration production --prerender --base-href=/
 
     - name: Prepare GitHub Pages output & verify SEO Prerender
       run: |
@@ -52,11 +52,13 @@ jobs:
         fi
         touch "$SRC/.nojekyll"
 
-        # Verifikasi folder hasil prerender SEO
-        if [ -d "$SRC/about-us" ]; then
-          echo "✅ SUCCESS: Folder about-us ditemukan. SEO Prerender Aktif!"
+        # Verifikasi sitemap.xml ikut ter-copy ke hasil build
+        if [ -f "$SRC/sitemap.xml" ]; then
+          echo "✅ SUCCESS: sitemap.xml ditemukan di $SRC"
+          head -n 25 "$SRC/sitemap.xml"
         else
-          echo "⚠️ WARNING: Folder about-us TIDAK ditemukan. Pastikan rute terdaftar untuk prerender."
+          echo "❌ ERROR: sitemap.xml TIDAK ditemukan di $SRC"
+          exit 1
         fi
 
         echo "PUBLISH_DIR=$SRC" >> $GITHUB_ENV
