@@ -17,7 +17,7 @@
               </div>
               <div class="blog-content">
                 <div class="post-meta-item blog-meta">
-                  <span>{{ list?.date }}</span>
+                  <span>{{ list?.date | date: 'dd MMMM y' }}</span>
                   <span>{{ list?.category }}</span>
                 </div>
                 <h4 class="blog-title">{{ list?.title }}</h4>

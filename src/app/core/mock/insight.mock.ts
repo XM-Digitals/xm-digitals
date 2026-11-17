@@ -5,7 +5,7 @@ export const LIST_MOCK_INSIGHT = {
   },
   data: [
     {
-      banner: 'https://tympanus.net/codrops/wp-content/uploads/2024/08/griddistortion_feat-1.jpg',
+      banner: 'insight/anti-rea.webp',
       slug: 'anti-rea-mitigation-strategies-across-frontend-and-backend',
       title: 'Anti-REA Mitigation Strategies Across Frontend and Backend Architectures',
       date: '2026-11-12',
@@ -13,7 +13,7 @@ export const LIST_MOCK_INSIGHT = {
       slugCategory: 'security'
     },
     {
-      banner: 'https://images.pexels.com/photos/7151031/pexels-photo-7151031.jpeg',
+      banner: 'insight/mobile-apps-sdui.webp',
       slug: 'building-scalable-mobile-apps-with-server-driven-ui-sdui',
       title: 'Building Scalable Mobile Apps with Server-Driven UI (SDUI)',
       date: '2026-11-03',
@@ -21,7 +21,7 @@ export const LIST_MOCK_INSIGHT = {
       slugCategory: 'technology'
     },
     {
-      banner: 'https://cdn.sanity.io/images/53loe8pn/production/ca96d29b27547828019e97428123e6600818959d-1536x1024.png?w=1600&fit=max&auto=format',
+      banner: 'insight/serverless-architecture-patterns.webp',
       slug: 'serverless-architecture-patterns-for-scalable-cloud-native-applications',
       title: 'Serverless Architecture Patterns for Scalable Cloud-Native Applications',
       date: '2026-10-18',
@@ -29,7 +29,7 @@ export const LIST_MOCK_INSIGHT = {
       slugCategory: 'devops'
     },
     {
-      banner: 'assets/images/xm-digitals-usecase.jpg',
+      banner: 'insight/shift-left-testing.webp',
       slug: 'shift-left-testing-mission-critical-systems',
       title: 'Shift-Left Testing for Mission-Critical Systems',
       date: '2026-09-25',
@@ -37,7 +37,7 @@ export const LIST_MOCK_INSIGHT = {
       slugCategory: 'technology'
     },
     {
-      banner: 'https://images.pexels.com/photos/8721342/pexels-photo-8721342.jpeg',
+      banner: 'insight/computer-vision.webp',
       slug: 'computer-vision-in-retail-and-hospitality-space-intelligence',
       title: 'How Computer Vision Transforms Space Utilization in Retail and Hospitality',
       date: '2026-09-08',
@@ -45,7 +45,7 @@ export const LIST_MOCK_INSIGHT = {
       slugCategory: 'ai'
     },
     {
-      banner: 'https://images.pexels.com/photos/2267748/pexels-photo-2267748.jpeg',
+      banner: 'insight/seo-and-hybrid-rendering-architecture.webp',
       slug: 'technical-seo-and-hybrid-rendering-architecture-for-scalable-growth',
       title: 'Technical SEO and Hybrid Rendering Architecture for Scalable Digital Growth',
       date: '2026-08-19',
@@ -62,7 +62,7 @@ export const MOCK_INSIGHT = {
   },
   data: [
     {
-      banner: 'https://tympanus.net/codrops/wp-content/uploads/2024/08/griddistortion_feat-1.jpg',
+      banner: 'insight/anti-rea.webp',
       slug: 'anti-rea-mitigation-strategies-across-frontend-and-backend',
       title: 'Anti-REA Mitigation Strategies Across Frontend and Backend Architectures',
       date: '2026-11-12',
@@ -137,7 +137,7 @@ export const MOCK_INSIGHT = {
       ctaUrl: 'https://wa.me/081806603068?text=Anti-REA%20Mitigation%20Strategies%20Across%20Frontend%20and%20Backend'
     },
     {
-      banner: 'https://images.pexels.com/photos/7151031/pexels-photo-7151031.jpeg',
+      banner: 'insight/mobile-apps-sdui.webp',
       slug: 'building-scalable-mobile-apps-with-server-driven-ui-sdui',
       title: 'Building Scalable Mobile Apps with Server-Driven UI (SDUI)',
       date: '2026-11-03',
@@ -209,7 +209,7 @@ export const MOCK_INSIGHT = {
       ctaUrl: 'https://wa.me/081806603068?text=Building%20Scalable%20Mobile%20Apps%20with%20Server-Driven%20UI%20(SDUI)'
     },
     {
-      banner: 'https://cdn.sanity.io/images/53loe8pn/production/ca96d29b27547828019e97428123e6600818959d-1536x1024.png?w=1600&fit=max&auto=format',
+      banner: 'insight/serverless-architecture-patterns.webp',
       slug: 'serverless-architecture-patterns-for-scalable-cloud-native-applications',
       title: 'Serverless Architecture Patterns for Scalable Cloud-Native Applications',
       date: '2026-10-18',
@@ -272,7 +272,7 @@ export const MOCK_INSIGHT = {
       ctaUrl: 'https://wa.me/081806603068?text=Serverless%20Architecture%20Patterns%20for%20Scalable%20Cloud-Native%20Applications'
     },
     {
-      banner: 'assets/images/xm-digitals-usecase.jpg',
+      banner: 'insight/shift-left-testing.webp',
       slug: 'shift-left-testing-mission-critical-systems',
       title: 'Shift-Left Testing for Mission-Critical Systems',
       description: 'We apply shift-left testing practices to identify risks early, improve software quality, and protect mission-critical systems — integrating quality assurance directly into the development lifecycle from day one. Relevant for enterprise platforms, high-availability systems, and complex digital products.',
@@ -371,7 +371,7 @@ export const MOCK_INSIGHT = {
       ctaUrl: 'https://wa.me/081806603068?text=Shift-Left%20Testing%20for%20Mission-Critical%20Systems'
     },
     {
-      banner: 'https://images.pexels.com/photos/8721342/pexels-photo-8721342.jpeg',
+      banner: 'insight/computer-vision.webp',
       slug: 'computer-vision-in-retail-and-hospitality-space-intelligence',
       title: 'How Computer Vision Transforms Space Utilization in Retail and Hospitality',
       date: '2026-09-08',
@@ -434,7 +434,7 @@ export const MOCK_INSIGHT = {
       ctaUrl: 'https://wa.me/081806603068?text=Computer%20Vision%20in%20Retail%20and%20Hospitality%20Space%20Intelligence'
     },
     {
-      banner: 'https://images.pexels.com/photos/2267748/pexels-photo-2267748.jpeg',
+      banner: 'insight/seo-and-hybrid-rendering-architecture.webp',
       slug: 'technical-seo-and-hybrid-rendering-architecture-for-scalable-growth',
       title: 'Technical SEO and Hybrid Rendering Architecture for Scalable Digital Growth',
       date: '2026-08-19',

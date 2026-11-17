@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { SeoService } from '../../../../shared/services/seo.service';
@@ -7,7 +7,8 @@ import { SeoService } from '../../../../shared/services/seo.service';
   selector: 'app-contact-us',
   imports: [RouterLink],
   templateUrl: './contact-us.component.html',
-  styleUrl: './contact-us.component.scss'
+  styleUrl: './contact-us.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class ContactUsComponent implements OnInit {
   constructor(private seo: SeoService){}

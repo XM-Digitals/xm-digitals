@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { DatePipe } from '@angular/common';;
 
 import { SeoService } from '../../../../shared/services/seo.service';
 import { LIST_MOCK_INSIGHT } from '../../../../core/mock/insight.mock';
@@ -7,9 +8,10 @@ import { ListInsight } from '../../../../core/model/insight.model';
 
 @Component({
   selector: 'app-insight',
-  imports: [RouterLink],
+  imports: [RouterLink, DatePipe],
   templateUrl: './insight.component.html',
-  styleUrl: './insight.component.scss'
+  styleUrl: './insight.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class InsightComponent implements OnInit {
   listInsights?: ListInsight[];

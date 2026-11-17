@@ -17,7 +17,6 @@ import { HERO_BASE64_COLOR, HERO_BASE64_DEPTH } from '../../../../core/mock/hero
 
 @Component({
   selector: 'app-hero-dark-paralax',
-  standalone: true,
   imports: [RouterModule],
   templateUrl: './hero-dark-paralax.component.html',
   styleUrl: './hero-dark-paralax.component.scss',
