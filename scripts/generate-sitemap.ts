@@ -1,7 +1,6 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { MOCK_SERVICE, MOCK_DETAIL_SERVICE } from '../src/app/core/mock/service.mock';
-import { MOCK_USECASES } from '../src/app/core/mock/use-cases.mock';
 import { LIST_MOCK_INSIGHT } from '../src/app/core/mock/insight.mock';
 
 const BASE_URL = 'https://xmdigitals.com';
