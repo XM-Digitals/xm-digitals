@@ -26,13 +26,11 @@ export class InsightComponent implements OnInit {
     const pageDesc = 'Latest trends in AI, Technology, Software Architecture, and Digital Growth by XM Digitals.';
 
     const firstBanner = this.listInsights?.[0]?.banner;
-    const schemaImage = firstBanner
-      ? (firstBanner.startsWith('http')
-          ? firstBanner
-          : `https://xmdigitals.com/assets/images/${firstBanner.replace(/^\/?(assets\/images\/)?/, '')}`)
-      : 'https://xmdigitals.com/assets/images/xm-digitals-center.png';
+    const cleanBanner = firstBanner ? firstBanner.replace(/^\/+/, '') : 'assets/images/xm-digitals-center.png';
+    const schemaImage = cleanBanner.startsWith('http')
+      ? cleanBanner
+      : `https://xmdigitals.com/${cleanBanner}`;
 
-    // Gunakan versi .jpg untuk Open Graph (WhatsApp & Sosmed)
     const ogImage = schemaImage.replace(/\.webp$/i, '.jpg');
 
     const schemaData = [

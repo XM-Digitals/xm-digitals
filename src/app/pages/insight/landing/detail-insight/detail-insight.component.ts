@@ -46,10 +46,11 @@ export class DetailInsightComponent implements OnInit {
     const pageTitle = insight.metaTitle || insight.title || 'Insight';
     const pageDesc = insight.metaDescription || insight.description || 'Read our latest insights.';
 
-    const rawBanner = insight.banner || 'xm-digitals-center.png';
-    const schemaImage = rawBanner.startsWith('http')
-      ? rawBanner
-      : `https://xmdigitals.com/assets/images/${rawBanner.replace(/^\/?(assets\/images\/)?/, '')}`;
+    const rawBanner = insight.banner || 'assets/images/xm-digitals-center.png';
+    const cleanBanner = rawBanner.replace(/^\/+/, '');
+    const schemaImage = cleanBanner.startsWith('http')
+      ? cleanBanner
+      : `https://xmdigitals.com/${cleanBanner}`;
 
     const ogImage = schemaImage.replace(/\.webp$/i, '.jpg');
     const publishedDate = (insight as any).date || '2026-09-25';
