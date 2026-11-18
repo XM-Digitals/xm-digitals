@@ -26,11 +26,14 @@ export class InsightComponent implements OnInit {
     const pageDesc = 'Latest trends in AI, Technology, Software Architecture, and Digital Growth by XM Digitals.';
 
     const firstBanner = this.listInsights?.[0]?.banner;
-    const pageImage = firstBanner
+    const schemaImage = firstBanner
       ? (firstBanner.startsWith('http')
           ? firstBanner
           : `https://xmdigitals.com/assets/images/${firstBanner.replace(/^\/?(assets\/images\/)?/, '')}`)
       : 'https://xmdigitals.com/assets/images/xm-digitals-center.png';
+
+    // Gunakan versi .jpg untuk Open Graph (WhatsApp & Sosmed)
+    const ogImage = schemaImage.replace(/\.webp$/i, '.jpg');
 
     const schemaData = [
       {
@@ -40,7 +43,7 @@ export class InsightComponent implements OnInit {
         "url": insightUrl,
         "name": pageTitle,
         "description": pageDesc,
-        "image": pageImage,
+        "image": schemaImage,
         "isPartOf": {
           "@id": "https://xmdigitals.com/#website"
         },
@@ -77,7 +80,7 @@ export class InsightComponent implements OnInit {
     this.seo.update({
       title: pageTitle,
       description: pageDesc,
-      image: pageImage,
+      image: ogImage,
       url: insightUrl,
       schema: schemaData
     });

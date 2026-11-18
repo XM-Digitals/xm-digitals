@@ -47,10 +47,11 @@ export class DetailInsightComponent implements OnInit {
     const pageDesc = insight.metaDescription || insight.description || 'Read our latest insights.';
 
     const rawBanner = insight.banner || 'xm-digitals-center.png';
-    const pageImage = rawBanner.startsWith('http')
+    const schemaImage = rawBanner.startsWith('http')
       ? rawBanner
       : `https://xmdigitals.com/assets/images/${rawBanner.replace(/^\/?(assets\/images\/)?/, '')}`;
 
+    const ogImage = schemaImage.replace(/\.webp$/i, '.jpg');
     const publishedDate = (insight as any).date || '2026-09-25';
 
     const schemaData = [
@@ -60,7 +61,7 @@ export class DetailInsightComponent implements OnInit {
         "@id": `${articleUrl}#article`,
         "headline": pageTitle,
         "description": pageDesc,
-        "image": [pageImage],
+        "image": [schemaImage],
         "datePublished": publishedDate,
         "dateModified": publishedDate,
         "author": {
@@ -112,7 +113,7 @@ export class DetailInsightComponent implements OnInit {
     this.seo.update({
       title: pageTitle,
       description: pageDesc,
-      image: pageImage,
+      image: ogImage,
       url: articleUrl,
       type: 'article',
       schema: schemaData
