@@ -275,6 +275,7 @@ export const MOCK_INSIGHT = {
       banner: 'insight/shift-left-testing.webp',
       slug: 'shift-left-testing-mission-critical-systems',
       title: 'Shift-Left Testing for Mission-Critical Systems',
+      date: '2026-09-25',
       description: 'We apply shift-left testing practices to identify risks early, improve software quality, and protect mission-critical systems — integrating quality assurance directly into the development lifecycle from day one. Relevant for enterprise platforms, high-availability systems, and complex digital products.',
       outcomeTitle: 'What is Shift-Left Testing?',
       outcomeDescription: 'Shift-left testing moves quality assurance earlier in the software development lifecycle — embedding testing, security, and validation directly into design and development phases.',

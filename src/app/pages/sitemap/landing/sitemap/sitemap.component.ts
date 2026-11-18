@@ -11,20 +11,53 @@ import { SeoService } from '../../../../shared/services/seo.service';
   encapsulation: ViewEncapsulation.None
 })
 export class SitemapComponent implements OnInit {
-  constructor(private seo: SeoService){}
+  constructor(private seo: SeoService) {}
 
   ngOnInit(): void {
-    const schemaData = {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "Sitemap | XM Digitals",
-      "description": "Sitemap of XM Digitals website for easy navigation."
-    }
+    const sitemapUrl = 'https://xmdigitals.com/sitemap';
+    const pageTitle = 'Sitemap | XM Digitals';
+    const pageDesc = 'Complete HTML sitemap of XM Digitals — browse all pages, digital services, and technical insights for easy navigation.';
+
+    const schemaData = [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${sitemapUrl}#webpage`,
+        "url": sitemapUrl,
+        "name": pageTitle,
+        "description": pageDesc,
+        "isPartOf": {
+          "@id": "https://xmdigitals.com/#website"
+        },
+        "about": {
+          "@id": "https://xmdigitals.com/#organization"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://xmdigitals.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Sitemap",
+            "item": sitemapUrl
+          }
+        ]
+      }
+    ];
 
     this.seo.update({
-      title: 'Sitemap | XM Digitals',
-      description: 'Sitemap of XM Digitals website for easy navigation.',
+      title: pageTitle,
+      description: pageDesc,
+      url: sitemapUrl,
       schema: schemaData
-    }); 
+    });
   }
 }

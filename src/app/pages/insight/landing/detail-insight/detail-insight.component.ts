@@ -20,9 +20,9 @@ export class DetailInsightComponent implements OnInit {
     private seo: SeoService,
     private route: ActivatedRoute,
     private router: Router
-  ){}
+  ) {}
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const slug = params.get('slug');
 
@@ -42,41 +42,78 @@ export class DetailInsightComponent implements OnInit {
   private seoUpdate(insight: Insight): void {
     if (!insight) return;
 
-    const pageTitle = insight.metaTitle || 'Insight';
-    const pageDesc = insight.metaDescription || 'Read our latest insights.';
-    const pageImage = insight.banner || 'xmdigitals.com';
-    const datePublished = new Date().toISOString(); 
+    const articleUrl = `https://xmdigitals.com/insight/${insight.slug}`;
+    const pageTitle = insight.metaTitle || insight.title || 'Insight';
+    const pageDesc = insight.metaDescription || insight.description || 'Read our latest insights.';
 
-    const schemaData = {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": pageTitle,
-      "description": pageDesc,
-      "image": pageImage,
-      "datePublished": datePublished,
-      "author": {
-        "@type": "Organization",
-        "name": "XM Digitals",
-        "url": "https://xmdigitals.com"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "XM Digitals",
-        "logo": { 
-          "@type": "ImageObject", 
-          "url": "https://xmdigitals.com/assets/images/logo-xm.png"
+    const rawBanner = insight.banner || 'xm-digitals-center.png';
+    const pageImage = rawBanner.startsWith('http')
+      ? rawBanner
+      : `https://xmdigitals.com/assets/images/${rawBanner.replace(/^\/?(assets\/images\/)?/, '')}`;
+
+    const publishedDate = (insight as any).date || '2026-09-25';
+
+    const schemaData = [
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "@id": `${articleUrl}#article`,
+        "headline": pageTitle,
+        "description": pageDesc,
+        "image": [pageImage],
+        "datePublished": publishedDate,
+        "dateModified": publishedDate,
+        "author": {
+          "@type": "Organization",
+          "@id": "https://xmdigitals.com/#organization",
+          "name": "XM Digitals",
+          "url": "https://xmdigitals.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://xmdigitals.com/#organization",
+          "name": "XM Digitals",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://xmdigitals.com/assets/images/xm-digitals-center.png"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": articleUrl
         }
       },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `xmdigitals.com{insight.slug}`
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://xmdigitals.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Insights",
+            "item": "https://xmdigitals.com/insight"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": insight.title || pageTitle,
+            "item": articleUrl
+          }
+        ]
       }
-    };
+    ];
 
     this.seo.update({
       title: pageTitle,
       description: pageDesc,
       image: pageImage,
+      url: articleUrl,
       type: 'article',
       schema: schemaData
     });

@@ -20,7 +20,7 @@ export class DetailServicesComponent implements OnInit {
     private seo: SeoService,
     private route: ActivatedRoute,
     private router: Router
-  ){}
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -42,36 +42,81 @@ export class DetailServicesComponent implements OnInit {
   private seoUpdate(detailService: DetailService): void {
     if (!detailService) return;
 
+    const parentServiceUrl = `https://xmdigitals.com/services/${detailService.slug}`;
+    const pageUrl = `${parentServiceUrl}/${detailService.detailSlug}`;
     const pageTitle = detailService.metaTitle || 'Service Detail';
     const pageDesc = detailService.metaDescription || 'Default description for XM Digitals services.';
-    const pageImage = detailService.banner || 'assets/images/logo-xm.png';
-    const pageUrl = `https://xmdigitals.com/services/${detailService.slug}/${detailService.detailSlug}`
 
-    const schemaData = {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": pageTitle,
-      "description": pageDesc,
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "XM Digitals",
+    const rawBanner = detailService.banner || 'xm-digitals-center.png';
+    const pageImage = rawBanner.startsWith('http')
+      ? rawBanner
+      : `https://xmdigitals.com/assets/images/${rawBanner.replace(/^\/?(assets\/images\/)?/, '')}`;
+
+    const parentLabel = detailService.slug
+      .split('-')
+      .map(word => word.toUpperCase() === 'XM' ? 'XM' : word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+
+    const schemaData = [
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": `${pageUrl}#service`,
+        "name": pageTitle,
         "url": pageUrl,
         "image": pageImage,
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Jakarta",
-          "addressCountry": "ID"
+        "serviceType": pageTitle,
+        "description": pageDesc,
+        "provider": {
+          "@type": "LocalBusiness",
+          "@id": "https://xmdigitals.com/#localbusiness",
+          "name": "XM Digitals",
+          "url": "https://xmdigitals.com/",
+          "image": "https://xmdigitals.com/assets/images/xm-digitals-center.png",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Jakarta",
+            "addressCountry": "ID"
+          }
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Indonesia"
         }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://xmdigitals.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": parentLabel,
+            "item": parentServiceUrl
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": pageTitle,
+            "item": pageUrl
+          }
+        ]
       }
-    };
+    ];
 
     this.seo.update({
       title: pageTitle,
       description: pageDesc,
       image: pageImage,
-      type: 'article',
+      url: pageUrl,
+      type: 'website',
       schema: schemaData
     });
   }
-
 }
