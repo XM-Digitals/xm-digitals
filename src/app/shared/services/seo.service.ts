@@ -11,7 +11,8 @@ export interface SeoData {
   keywords?: string;
   type?: 'website' | 'article';
   author?: string;
-  schema?: any; // Untuk JSON-LD Dinamis
+  robots?: string;
+  schema?: Record<string, any> | Record<string, any>[];
 }
 
 @Injectable({
@@ -27,7 +28,7 @@ export class SeoService {
     private router: Router,
     private titleService: Title,
     private metaService: Meta,
-    @Inject(PLATFORM_ID) platformId: any,
+    @Inject(PLATFORM_ID) platformId: object,
     @Inject(DOCUMENT) private dom: Document
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
@@ -37,33 +38,38 @@ export class SeoService {
    * 🎯 METHOD UTAMA: Update semua SEO dan Structured Data
    */
   update(data: SeoData): void {
-    // 1. Ambil URL rute saat ini secara dinamis
-    const currentRoute = this.router.url.split('?')[0]; 
-    const dynamicUrl = `${this.SITE_URL}${currentRoute === '/' ? '' : currentRoute}`;
-    const finalUrl = data.url || dynamicUrl;
+    // 1. Deteksi path aktif yang aman untuk SSR/Prerender maupun Browser
+    const domPath = this.dom?.location?.pathname || '/';
+    const routerPath = this.router.url.split('?')[0].split('#')[0];
+    const activePath = (routerPath && routerPath !== '/') ? routerPath : domPath;
+
+    // Normalisasi: root tetap '/', rute lain tanpa trailing slash
+    const cleanPath = activePath === '/' ? '/' : activePath.replace(/\/+$/, '');
+    const dynamicUrl = `${this.SITE_URL}${cleanPath}`;
+    const finalUrl = data.url ? this.normalizeUrl(data.url) : dynamicUrl;
 
     // 2. Format Title
     const fullTitle = this.formatTitle(data.title ?? this.DEFAULT_TITLE);
     this.titleService.setTitle(fullTitle);
 
-    // 3. PANGGIL updateMetaTags (Tambahkan baris ini 🚀)
-    // Berikan parameter finalUrl ke dalam data agar og:url sinkron
+    // 3. Update Meta Tags (OG, Twitter, Standard)
     this.updateMetaTags({ ...data, url: finalUrl }, fullTitle);
 
-    // 4. Update Canonical
+    // 4. Update Canonical (100% sinkron dengan sitemap.xml)
     this.updateCanonical(finalUrl);
 
-    // 5. Update JSON-LD
+    // 5. Update JSON-LD (pertahankan schema homepage jika di root '/')
     if (data.schema) {
       this.updateJsonLd(data.schema);
+    } else if (cleanPath !== '/') {
+      this.removeJsonLd();
     }
   }
 
   private updateMetaTags(data: SeoData, fullTitle: string): void {
     const description = data.description || '';
-    const imageUrl = this.getAbsoluteUrl(data.image || 'assets/images/logo-xm.png');
+    const imageUrl = this.getAbsoluteUrl(data.image || 'assets/images/xm-digitals-center.png');
 
-    // Gunakan pengecoran tipe (type casting) ke 'any' atau buat objek yang eksplisit
     const tags: any[] = [
       // Open Graph
       { property: 'og:title', content: fullTitle },
@@ -71,25 +77,29 @@ export class SeoService {
       { property: 'og:image', content: imageUrl },
       { property: 'og:type', content: data.type ?? 'website' },
       { property: 'og:site_name', content: this.BRAND_NAME },
-      { property: 'og:url', content: data.url || this.SITE_URL },
-      
+      { property: 'og:url', content: data.url || `${this.SITE_URL}/` },
+
       // Twitter
       { name: 'twitter:title', content: fullTitle },
       { name: 'twitter:description', content: description },
       { name: 'twitter:image', content: imageUrl },
       { name: 'twitter:card', content: 'summary_large_image' },
-      
+
       // Standard SEO
       { name: 'description', content: description },
       { name: 'author', content: data.author ?? this.BRAND_NAME },
-      { name: 'robots', content: 'index, follow' }
+      {
+        name: 'robots',
+        content: data.robots ?? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+      }
     ];
 
     if (data.keywords) {
       tags.push({ name: 'keywords', content: data.keywords });
+    } else {
+      this.metaService.removeTag("name='keywords'");
     }
 
-    // Melakukan update tag satu per satu
     tags.forEach(tag => {
       this.metaService.updateTag(tag);
     });
@@ -97,27 +107,36 @@ export class SeoService {
 
   private updateCanonical(url: string): void {
     const head = this.dom.head;
-    const existing = head.querySelector('link[rel="canonical"]');
-    if (existing) {
-      head.removeChild(existing);
-    }
+    const existingLinks = head.querySelectorAll('link[rel="canonical"]');
+    existingLinks.forEach(el => head.removeChild(el));
+
     const link = this.dom.createElement('link');
     link.setAttribute('rel', 'canonical');
     link.setAttribute('href', url);
     head.appendChild(link);
   }
 
-  private updateJsonLd(schema: any): void {
-    let script = this.dom.getElementById('xm-json-ld') as HTMLScriptElement;
-    if (script) {
-      script.text = JSON.stringify(schema);
-    } else {
+  private updateJsonLd(schema: Record<string, any> | Record<string, any>[]): void {
+    let script = this.dom.getElementById('xm-json-ld') as HTMLScriptElement | null;
+    if (!script) {
       script = this.dom.createElement('script');
       script.id = 'xm-json-ld';
       script.type = 'application/ld+json';
-      script.text = JSON.stringify(schema);
       this.dom.head.appendChild(script);
     }
+    script.text = JSON.stringify(schema);
+  }
+
+  private removeJsonLd(): void {
+    const script = this.dom.getElementById('xm-json-ld');
+    if (script) {
+      script.remove();
+    }
+  }
+
+  private normalizeUrl(url: string): string {
+    const clean = url.split('?')[0].split('#')[0];
+    return clean === `${this.SITE_URL}/` ? clean : clean.replace(/\/+$/, '');
   }
 
   private formatTitle(pageTitle: string): string {
