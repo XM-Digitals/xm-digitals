@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewEncapsulation } from '@angular/core';
+import { isPlatformBrowser, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { DatePipe } from '@angular/common';
 
 import { SeoService } from '../../../../shared/services/seo.service';
 import { LIST_MOCK_INSIGHT } from '../../../../core/mock/insight.mock';
@@ -13,10 +13,15 @@ import { ListInsight } from '../../../../core/model/insight.model';
   styleUrl: './insight.component.scss',
   encapsulation: ViewEncapsulation.None
 })
-export class InsightComponent implements OnInit {
+export class InsightComponent implements OnInit, OnDestroy {
   listInsights?: ListInsight[];
+  loadedImages: Record<string, boolean> = {};
+  private timers: ReturnType<typeof setTimeout>[] = [];
 
-  constructor(private seo: SeoService) {}
+  constructor(
+    private seo: SeoService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit(): void {
     this.listInsights = LIST_MOCK_INSIGHT.data;
@@ -82,5 +87,28 @@ export class InsightComponent implements OnInit {
       url: insightUrl,
       schema: schemaData
     });
+  }
+
+  onImageLoad(slug?: string): void {
+    if (!slug) return;
+
+    if (isPlatformBrowser(this.platformId)) {
+      const timer = setTimeout(() => {
+        this.loadedImages[slug] = true;
+      }, 800);
+      this.timers.push(timer);
+    } else {
+      this.loadedImages[slug] = true;
+    }
+  }
+
+  onImageError(slug?: string): void {
+    if (slug) {
+      this.loadedImages[slug] = true;
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.timers.forEach(timer => clearTimeout(timer));
   }
 }

@@ -1,10 +1,25 @@
 <div class="landing-about-us">
-  <div class="cta-area-1 overflow-hidden bg-theme space">
+  <div class="bg-smoke cta-area-1 overflow-hidden bg-theme space">
     <div class="container">
       <div class="row mt-15">
-        <div class="col-lg-5">
-          <img src="assets/images/xm-digitals-aboutus.jpg" class="images-area mb-30" />
+        <div class="col-lg-4">
+          <div class="robot-pixel-stage mb-30">
+            <img src="assets/images/about-xm-digitals.webp" class="images-area" />
+            <div class="pixel-overlay" aria-hidden="true">
+              @for (px of robotPixels; track $index) {
+                <span
+                  class="pixel-cell"
+                  [style.top]="px.top"
+                  [style.left]="px.left"
+                  [style.animation-delay]="px.delay"
+                  [style.animation-duration]="px.duration"
+                  [style.--max-op]="px.maxOpacity"
+                ></span>
+              }
+            </div>
+          </div>
         </div>
+        <div class="col-lg-1"></div>
         <div class="col-lg-7">
           <div class="title-area mt-15 mb-15">
             <h1 class="sec-title mt-30">About XM Digitals</h1>
@@ -39,6 +54,135 @@
       </div>
     </div>
   </div>
+  <div class="counter-area-1 overflow-hidden space-top">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-12">
+          <h2 class="sec-title text-center mb-80">How We Work</h2>
+        </div>
+      </div>
+      <div class="row gy-40 align-items-center justify-content-lg-between justify-content-center">
+          <div class="col-xl-auto col-lg-4 col-md-6 counter-divider">
+              <div class="counter-card">
+                  <h3 class="counter-card_title">Discover & Align</h3>
+                  <p class="counter-card_text">We start by mapping your operational bottlenecks, existing systems, and business objectives before writing a single line of code.</p>
+              </div>
+          </div>
+          <div class="col-xl-auto col-lg-4 col-md-6 counter-divider">
+              <div class="counter-card">
+                  <h3 class="counter-card_title">Architect & Build</h3>
+                  <p class="counter-card_text">Our design and engineering teams work in unified sprints—building modular, scalable platforms with clean interfaces and practical AI integration.</p>
+              </div>
+          </div>
+          <div class="col-xl-auto col-lg-4 col-md-6 counter-divider">
+              <div class="counter-card">
+                  <h3 class="counter-card_title">Deploy & Evolve</h3>
+                  <p class="counter-card_text">Beyond launch, we stay involved to monitor performance, refine workflows, and scale capabilities as your organization grows.</p>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="testimonial-area-5 space overflow-hidden mt-30">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="title-area text-center">
+            <h2 class="sec-title">Our Projects</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row global-carousel testi-slider5" data-slide-show="3" data-dots="true" data-xl-dots="true" data-ml-dots="true">
+        <div class="col-lg-4">
+          <div class="testi-box style5">
+            <div class="box_img">
+              <img src="https://asset.kompas.com/crops/fqLEu_LX1Nlf9be2u5SCHi_Sdkc=/0x0:1200x800/1200x800/data/photo/2026/06/07/6a258a3806ad5.jpg" alt="img">
+            </div>
+            <div class="testi-box_profile mt-30">
+              <h3 class="testi-box_name">PT Paramount Enterprise International</h3>
+              <span class="testi-box_desig">Bespoke Enterprise Solutions</span>
+            </div>
+            <div class="testi-box_profile mt-30">
+              <h4 class="testi-box_name">Key Business Challenge</h4>
+              <p>The tax and accounting division at Angkasa Pura I faced a growing challenge:</p>
+              <ul>
+                <li>Manually handling 380 vendor-related documents each month</li>
+                <li>Processing important data such as contracts, SPKs, POs, invoices, and tax numbers</li>
+                <li>Managing data from 22 vendors with limited scalability</li>
+                <li>Time-consuming and error-prone verification processes</li>
+                <li>To ensure data accuracy and operational efficiency, a smart, automated solution was urgently needed.</li>
+              </ul>
+              <a href="service-details.html" class="link-btn mt-30" tabindex="-1">
+                <span class="link-effect">
+                  <span class="effect-1">VIEW DETAILS</span>
+                  <span class="effect-1">VIEW DETAILS</span>
+                </span>
+                <img src="assets/images/icon/arrow-left-top.svg" alt="icon">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testi-box style5">
+            <div class="box_img">
+              <img src="https://asset.kompas.com/crops/fqLEu_LX1Nlf9be2u5SCHi_Sdkc=/0x0:1200x800/1200x800/data/photo/2026/06/07/6a258a3806ad5.jpg" alt="img">
+            </div>
+            <div class="testi-box_profile mt-30">
+              <h3 class="testi-box_name">PT Paramount Enterprise International</h3>
+              <span class="testi-box_desig">Bespoke Enterprise Solutions</span>
+            </div>
+            <div class="testi-box_profile mt-30">
+              <h4 class="testi-box_name">Key Business Challenge</h4>
+              <p>The tax and accounting division at Angkasa Pura I faced a growing challenge:</p>
+              <ul>
+                <li>Manually handling 380 vendor-related documents each month</li>
+                <li>Processing important data such as contracts, SPKs, POs, invoices, and tax numbers</li>
+                <li>Managing data from 22 vendors with limited scalability</li>
+                <li>Time-consuming and error-prone verification processes</li>
+                <li>To ensure data accuracy and operational efficiency, a smart, automated solution was urgently needed.</li>
+              </ul>
+              <a href="service-details.html" class="link-btn mt-30" tabindex="-1">
+                <span class="link-effect">
+                  <span class="effect-1">VIEW DETAILS</span>
+                  <span class="effect-1">VIEW DETAILS</span>
+                </span>
+                <img src="assets/images/icon/arrow-left-top.svg" alt="icon">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testi-box style5">
+            <div class="box_img">
+              <img src="https://asset.kompas.com/crops/fqLEu_LX1Nlf9be2u5SCHi_Sdkc=/0x0:1200x800/1200x800/data/photo/2026/06/07/6a258a3806ad5.jpg" alt="img">
+            </div>
+            <div class="testi-box_profile mt-30">
+              <h3 class="testi-box_name">PT Paramount Enterprise International</h3>
+              <span class="testi-box_desig">Bespoke Enterprise Solutions</span>
+            </div>
+            <div class="testi-box_profile mt-30">
+              <h4 class="testi-box_name">Key Business Challenge</h4>
+              <p>The tax and accounting division at Angkasa Pura I faced a growing challenge:</p>
+              <ul>
+                <li>Manually handling 380 vendor-related documents each month</li>
+                <li>Processing important data such as contracts, SPKs, POs, invoices, and tax numbers</li>
+                <li>Managing data from 22 vendors with limited scalability</li>
+                <li>Time-consuming and error-prone verification processes</li>
+                <li>To ensure data accuracy and operational efficiency, a smart, automated solution was urgently needed.</li>
+              </ul>
+              <a href="service-details.html" class="link-btn mt-30" tabindex="-1">
+                <span class="link-effect">
+                  <span class="effect-1">VIEW DETAILS</span>
+                  <span class="effect-1">VIEW DETAILS</span>
+                </span>
+                <img src="assets/images/icon/arrow-left-top.svg" alt="icon">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
   <div class="client-area-1 overflow-hidden space">
     <div class="container">
       <div class="row justify-content-center">
