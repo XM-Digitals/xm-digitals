@@ -25,10 +25,11 @@ export class HeaderComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
+    this.updateFromRouter();
+
     if (this.isBrowser) {
       gsap.registerPlugin(TextPlugin);
       
-      this.updateFromRouter();
       this.router.events.pipe(
         filter(event => event instanceof NavigationEnd)
       ).subscribe(() => {
@@ -55,8 +56,9 @@ export class HeaderComponent implements AfterViewInit, OnInit {
   }
 
   updateFromRouter(): void {
-    this.currentUrl = this.router.url;
-    this.isHome = (this.currentUrl === '/' || this.currentUrl === '');
+    const cleanPath = this.router.url.split('?')[0].split('#')[0];
+    this.currentUrl = cleanPath;
+    this.isHome = (cleanPath === '/' || cleanPath === '');
   }
   
   isHome = false;
