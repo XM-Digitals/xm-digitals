@@ -1,46 +1,48 @@
-<div class="landing-detail-insight">
-  <div class="breadcumb-wrapper style2 bg-smoke">
-    <div class="container-fluid">
-      <div class="breadcumb-content">
-        <ul class="breadcumb-menu">
-          <li><a [routerLink]="'/'">Home</a></li>
-          <li><a [routerLink]="'/insight'">Insight</a></li>
-          <li>{{ insight?.title }}</li>
-        </ul>
+<article>
+  <div class="landing-detail-insight">
+    <div class="breadcumb-wrapper style2 bg-smoke">
+      <div class="container-fluid">
+        <div class="breadcumb-content">
+          <ul class="breadcumb-menu">
+            <li><a [routerLink]="'/'">Home</a></li>
+            <li><a [routerLink]="'/insight'">Insight</a></li>
+            <li>{{ insight?.title }}</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <app-hero [insight]="insight"></app-hero>
-  <div class="about-area-13 overflow-hidden mt-60 mb-60">
-    <div class="container">
-      <div class="row justify-content-end">
-        <div class="col-lg-12">
-          <div class="title-area mb-0">
-            <div class="content" [innerHtml]="insight?.content"></div>
-            @if (insight?.ctaTitle) {
-              <div class="btn-group fade_left">
-                <a target="_blank" [href]="insight?.ctaUrl" class="btn style2 wow img-custom-anim-left">
-                  <span class="link-effect">
-                    <span class="effect-1">{{ insight?.ctaTitle }}</span>
-                    <span class="effect-1">{{ insight?.ctaTitle }}</span>
-                  </span>
-                </a>
-              </div>
-            }
+    <app-hero [insight]="insight"></app-hero>
+    <div class="about-area-13 overflow-hidden mt-60 mb-60">
+      <div class="container">
+        <div class="row justify-content-end">
+          <div class="col-lg-12">
+            <div class="title-area mb-0">
+              <div class="content" [innerHtml]="insight?.content"></div>
+              @if (insight?.ctaTitle) {
+                <div class="btn-group fade_left">
+                  <a target="_blank" [href]="insight?.ctaUrl" class="btn style2 wow img-custom-anim-left">
+                    <span class="link-effect">
+                      <span class="effect-1">{{ insight?.ctaTitle }}</span>
+                      <span class="effect-1">{{ insight?.ctaTitle }}</span>
+                    </span>
+                  </a>
+                </div>
+              }
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="share-btn">
-    <div class="container">
-      <app-share-buttons 
-        [labels]="'none'"
-        [alignment]="'left'"
-        [url]="'https://xmdigitals.com/insight/' + insight?.slug"
-        [title]="insight?.title"
-        [networks]="['twitter', 'facebook', 'linkedin', 'whatsapp']"
-      />
+    <div class="share-btn">
+      <div class="container">
+        <app-share-buttons 
+          [labels]="'none'"
+          [alignment]="'left'"
+          [url]="'https://xmdigitals.com/insight/' + insight?.slug"
+          [title]="insight?.title"
+          [networks]="['twitter', 'facebook', 'linkedin', 'whatsapp']"
+        />
+      </div>
     </div>
   </div>
-</div>
+</article>

@@ -1,5 +1,13 @@
 .landing-insight {
   .blog-area {
+    .sec-title {
+      margin-top: 60px;
+      font-size: 54px;
+
+      @media (max-width: 991px) {
+        font-size: 32px;
+      }
+    }
     .blog-img {
       position: relative;
       height: 450px;

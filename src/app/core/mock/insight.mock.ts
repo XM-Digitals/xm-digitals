@@ -135,7 +135,7 @@ export const MOCK_INSIGHT = {
       </section>
       `,
       ctaTitle: 'Discuss Application Shielding',
-      ctaUrl: 'https://wa.me/081806603068?text=Anti-REA%20Mitigation%20Strategies%20Across%20Frontend%20and%20Backend'
+      ctaUrl: 'https://wa.me/6281806603068?text=Anti-REA%20Mitigation%20Strategies%20Across%20Frontend%20and%20Backend'
     },
     {
       banner: 'insight/mobile-apps-sdui.webp',
@@ -208,7 +208,7 @@ export const MOCK_INSIGHT = {
       </section>
       `,
       ctaTitle: 'Discuss Mobile SDUI',
-      ctaUrl: 'https://wa.me/081806603068?text=Building%20Scalable%20Mobile%20Apps%20with%20Server-Driven%20UI%20(SDUI)'
+      ctaUrl: 'https://wa.me/6281806603068?text=Building%20Scalable%20Mobile%20Apps%20with%20Server-Driven%20UI%20(SDUI)'
     },
     {
       banner: 'insight/serverless-architecture-patterns.webp',
@@ -272,7 +272,7 @@ export const MOCK_INSIGHT = {
       </section>
       `,
       ctaTitle: 'Discuss Cloud & DevOps',
-      ctaUrl: 'https://wa.me/081806603068?text=Serverless%20Architecture%20Patterns%20for%20Scalable%20Cloud-Native%20Applications'
+      ctaUrl: 'https://wa.me/6281806603068?text=Serverless%20Architecture%20Patterns%20for%20Scalable%20Cloud-Native%20Applications'
     },
     {
       banner: 'insight/shift-left-testing.webp',
@@ -375,7 +375,7 @@ export const MOCK_INSIGHT = {
       </section>
       `,
       ctaTitle: 'Discuss Your System',
-      ctaUrl: 'https://wa.me/081806603068?text=Shift-Left%20Testing%20for%20Mission-Critical%20Systems'
+      ctaUrl: 'https://wa.me/6281806603068?text=Shift-Left%20Testing%20for%20Mission-Critical%20Systems'
     },
     {
       banner: 'insight/computer-vision.webp',
@@ -439,7 +439,7 @@ export const MOCK_INSIGHT = {
       </section>
       `,
       ctaTitle: 'Discuss Space Intelligence AI',
-      ctaUrl: 'https://wa.me/081806603068?text=Computer%20Vision%20in%20Retail%20and%20Hospitality%20Space%20Intelligence'
+      ctaUrl: 'https://wa.me/6281806603068?text=Computer%20Vision%20in%20Retail%20and%20Hospitality%20Space%20Intelligence'
     },
     {
       banner: 'insight/seo-and-hybrid-rendering-architecture.webp',
@@ -503,7 +503,7 @@ export const MOCK_INSIGHT = {
       </section>
       `,
       ctaTitle: 'Discuss Technical SEO',
-      ctaUrl: 'https://wa.me/081806603068?text=Technical%20SEO%20and%20Hybrid%20Rendering%20Architecture%20for%20Scalable%20Growth'
+      ctaUrl: 'https://wa.me/6281806603068?text=Technical%20SEO%20and%20Hybrid%20Rendering%20Architecture%20for%20Scalable%20Growth'
     }
   ]
 }

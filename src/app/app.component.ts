@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common'; // Wajib untuk cek lingkungan
-import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 import { MainComponent } from './components/main/main.component';
@@ -8,7 +8,7 @@ import { MainComponent } from './components/main/main.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MainComponent],
+  imports: [MainComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   encapsulation: ViewEncapsulation.None

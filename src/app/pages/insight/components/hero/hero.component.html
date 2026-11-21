@@ -1,5 +1,5 @@
 @if (insight) {
-  <div class="hero-wrapper detail-insight hero-7" id="hero">
+  <header class="hero-wrapper detail-insight hero-7" id="hero">
     <div class="bg-title">
       <div class="container">
         <div class="row justify-content-center">
@@ -9,7 +9,7 @@
               <p class="hero-text wow img-custom-anim-top">
                 {{ insight.contentDescription }}
               </p>
-              <time [attr.datetime]="insight.date" class="insight-date">
+              <time [attr.datetime]="insight.date" class="insight-date wow img-custom-anim-top">
                 {{ insight.date | date: 'dd MMMM y' }}
               </time>
             </div>
@@ -29,5 +29,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </header>
 }
