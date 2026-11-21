@@ -88,6 +88,14 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "host": "local.xmdigitals.com",
+            "port": 4200,
+            "open": true,
+            "allowedHosts": [
+              "local.xmdigitals.com"
+            ]
+          },
           "configurations": {
             "production": {
               "buildTarget": "xmdigitals:build:production"

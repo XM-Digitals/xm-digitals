@@ -32,4 +32,15 @@
       </div>
     </div>
   </div>
+  <div class="share-btn">
+    <div class="container">
+      <app-share-buttons 
+        [labels]="'none'"
+        [alignment]="'left'"
+        [url]="'https://xmdigitals.com/insight/' + insight?.slug"
+        [title]="insight?.title"
+        [networks]="['twitter', 'facebook', 'linkedin', 'whatsapp']"
+      />
+    </div>
+  </div>
 </div>

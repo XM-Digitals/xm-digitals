@@ -2,13 +2,14 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 import { HeroComponent } from '../../components/hero/hero.component';
+import { ShareButtonsComponent } from '../../../../shared/components/share-buttons/share-buttons.component';
 import { SeoService } from '../../../../shared/services/seo.service';
 import { MOCK_INSIGHT } from '../../../../core/mock/insight.mock';
 import { Insight } from '../../../../core/model/insight.model';
 
 @Component({
   selector: 'app-detail-insight',
-  imports: [RouterLink, HeroComponent],
+  imports: [RouterLink, HeroComponent, ShareButtonsComponent],
   templateUrl: './detail-insight.component.html',
   styleUrl: './detail-insight.component.scss',
   encapsulation: ViewEncapsulation.None

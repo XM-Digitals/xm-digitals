@@ -27,8 +27,10 @@ export interface Insight {
   banner: string;
   slug: string;
   title: string;
+  date: string;
   category?: string;
   slugCategory?: string;
+  imageCaption?: string;
   description: string;
   outcomeTitle?: string;
   outcomeDescription?: string;
