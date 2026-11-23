@@ -1,23 +1,66 @@
 <div class="landing-sitemap">
-  <div class="cta-area-1 overflow-hidden bg-theme space">
+  <!-- Header Banner -->
+  <div class="sitemap-hero overflow-hidden bg-theme space">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-xl-8 col-lg-10">
-          <div class="title-area text-center mt-40 mb-0">
-            <h2 class="sec-title">Hi, there..</h2>
-            <h3 class="sec-title">Looking forward to meet you soon!</h3>
-            <h4 class="sec-title">Sitemap page is on the way</h4>
-            <div class="btn-group justify-content-center">
-              <a [routerLink]="'/'" class="btn mt-40 mb-40">
-                <span class="link-effect">
-                  <span class="effect-1">Back to Home</span>
-                  <span class="effect-1">Back to Home</span>
-                </span>
-              </a>
-            </div>
+      <div class="row justify-content-between align-items-end">
+        <div class="col-lg-8">
+          <div class="title-area mb-0">
+            <h1 class="sec-title">Sitemap</h1>
+            <p class="sec-text mt-20 mb-0">
+              Complete directory of XM Digitals pages, digital services, and technical insights.
+            </p>
           </div>
         </div>
+        <div class="col-lg-4 text-lg-end mt-20 mt-lg-0">
+          <span class="sitemap-badge">
+            {{ totalLinks() }} Indexed Pages
+          </span>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Directory Grid -->
+  <div class="sitemap-directory space">
+    <div class="container">
+      @if (isLoading()) {
+        <div class="sitemap-loading">Loading sitemap directory...</div>
+      } @else {
+        <div class="row g-4">
+          @for (group of sitemapGroups(); track group.category) {
+            <div class="col-lg-4 col-md-6">
+              <div class="sitemap-card">
+                <div class="sitemap-card__header">
+                  <span class="sitemap-card__dot"></span>
+                  <h2 class="sitemap-card__title">{{ group.category }}</h2>
+                  <span class="sitemap-card__count">{{ group.items.length }}</span>
+                </div>
+
+                <ul class="sitemap-card__list">
+                  @for (item of getVisibleItems(group); track item.route) {
+                    <li>
+                      <a [routerLink]="item.route" class="sitemap-link">
+                        <span class="sitemap-link__label">{{ item.label }}</span>
+                        <span class="sitemap-link__path">{{ item.route }}</span>
+                      </a>
+                    </li>
+                  }
+                </ul>
+
+                @if (hasMoreItems(group)) {
+                  <button
+                    type="button"
+                    class="sitemap-toggle-btn"
+                    (click)="loadMore(group.category)"
+                  >
+                    Load more ({{ getRemainingCount(group) }} remaining)
+                  </button>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      }
     </div>
   </div>
 </div>
