@@ -2,18 +2,144 @@
   margin-top: 90px;
 
   .about-area-1 {
+    position: relative;
+
     .about-img-1-1 {
-      width: 44%;
+      position: absolute;
+      left: 0;
+      top: -105px;
+      bottom: 140px;
+      left: -5px;
+      z-index: 3;
+
       img {
         height: 100%;
         object-fit: cover;
         width: 100%;
       }
+
+      // Pengganti WOW.js yang 100% jalan otomatis setiap pindah route SPA
+      &.hero-reveal-left {
+        visibility: visible !important;
+        opacity: 0;
+        animation: heroSlideRevealLeft 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s forwards;
+      }
+
+      // XM Creative
+      &.xm-creative {
+        > img {
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+          filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.14));
+        }
+
+        .xm-visor-glow {
+          position: absolute;
+          top: 36.4%;
+          left: 53.6%;
+          width: 17.8%;
+          height: 3.5px;
+          border-radius: 999px;
+          background: linear-gradient(
+            90deg,
+            rgba(215, 245, 0, 0.35) 0%,
+            #ffffff 35%,
+            #e8ff3b 70%,
+            rgba(215, 245, 0, 0.35) 100%
+          );
+          transform: rotate(3.2deg) scaleX(0.15);
+          transform-origin: center center;
+          opacity: 0;
+          z-index: 4;
+          pointer-events: none;
+          animation: xmVisorPowerOn 1.4s cubic-bezier(0.22, 1, 0.36, 1) 1.65s 1 forwards;
+          will-change: transform, opacity, box-shadow;
+        }
+      }
+
+      // XM Tech
+      &.xm-tech {
+        overflow: hidden;
+
+        > img {
+          object-fit: contain;
+          // height: auto;
+        }
+
+        .xm-laptop-screen {
+          position: absolute;
+          top: 13.5%;
+          left: 23.2%;
+          width: 53.6%;
+          height: 44.5%;
+          background-color: #050505;
+          border-radius: 6px 6px 0 0;
+          overflow: hidden;
+          z-index: 2;
+          pointer-events: none;
+
+          .xm-screen-logo {
+            position: absolute;
+            top: 12%;
+            left: 10%;
+            // width: 42%;
+            max-width: 150px;
+            height: auto;
+            object-fit: contain;
+            mix-blend-mode: screen;
+            opacity: 0.14;
+            // Jalankan 1x saja (2.2 detik) lalu berhenti di frame terakhir (forwards)
+            animation: xmFlyAndGlow 2s cubic-bezier(0.22, 1, 0.36, 1) 1.65s 1 forwards;
+  will-change: top, left, transform, opacity, filter;
+          }
+        }
+      }
+
+      // XM AI
+      &.xm-ai {
+        perspective: 900px;
+
+        > img {
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+          transform-origin: center bottom;
+          filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.14));
+          animation: xmAiHeadTurn3D 6.5s ease-in-out 1.65s infinite;
+          will-change: transform;
+        }
+      }
+
+      // XM Growth
+      &.xm-growth {
+        > img {
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+          filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.14));
+        }
+
+        .xm-growth-accent {
+          position: absolute;
+          top: 28%;
+          right: 14%;
+          width: 16%;
+          height: 34%;
+          border-radius: 50%;
+          border-right: 3.5px solid #111111;
+          opacity: 0;
+          z-index: 4;
+          pointer-events: none;
+          animation: xmSoundWave 2.6s cubic-bezier(0.22, 1, 0.36, 1) 1.65s infinite;
+          will-change: transform, opacity;
+        }
+      }
     }
   }
   @media (max-width: 1500px) {
     .about-area-1 .about-img-1-1 {
-      width: 42%;
+      // width: 42%;
     }
   }
   @media (max-width: 991px) {
@@ -24,6 +150,24 @@
       width: 100%;
       top: -80px !important;
       position: relative !important;
+
+      &.xm-creative, &.xm-tech, &.xm-ai, &.xm-growth {
+        top: -50px !important;
+
+        img {
+          padding: 30px;
+        }
+      }
+
+      &.xm-creative {
+        .xm-visor-glow {
+          top: 35%;
+        }
+      }
+
+      &.xm-growth {
+        top: -20px !important;
+      }
     }
   }
 
@@ -123,4 +267,106 @@
       }
     }
   }
+
+  @keyframes xmCreativeSculptMotion {
+    0%,
+    100% {
+      transform: rotateY(0deg) rotateZ(0deg) scale(1);
+      filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.14));
+    }
+    50% {
+      transform: rotateY(-7deg) rotateZ(-0.6deg) scale(1.012);
+      filter: drop-shadow(0 22px 32px rgba(0, 0, 0, 0.18))
+              drop-shadow(0 0 12px rgba(215, 245, 0, 0.25));
+    }
+  }
+
+  @keyframes heroSlideRevealLeft {
+    0% {
+      opacity: 0;
+      clip-path: inset(0 100% 0 0);
+      transform: translateX(-40px);
+    }
+    100% {
+      opacity: 1;
+      clip-path: inset(0 0 0 0);
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes xmVisorPowerOn {
+    0% {
+      opacity: 0;
+      transform: rotate(3.2deg) scaleX(0.15);
+      box-shadow: 0 0 0 rgba(215, 245, 0, 0);
+    }
+    45% {
+      opacity: 0.85;
+      transform: rotate(3.2deg) scaleX(1);
+      box-shadow: 0 0 8px rgba(215, 245, 0, 0.85);
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(3.2deg) scaleX(1);
+      box-shadow:
+        0 0 8px #ffffff,
+        0 0 18px rgba(215, 245, 0, 0.95),
+        0 0 32px rgba(215, 245, 0, 0.7);
+    }
+  }
+
+  @keyframes xmFlyAndGlow {
+    0%, 15% {
+      top: 12%;
+      left: 10%;
+      transform: translate(0, 0) scale(0.85);
+      opacity: 0.14;
+      filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+    }
+
+    55% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.35;
+      filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+    }
+
+    75%, 100% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1.04);
+      opacity: 1;
+      filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.75))
+              drop-shadow(0 0 28px rgba(215, 245, 0, 0.45));
+    }
+  }
+
+  @keyframes xmAiHeadTurn3D {
+    0%,
+    100% {
+      transform: rotateY(0deg) rotateZ(0deg);
+    }
+    25% {
+      transform: rotateY(10deg) rotateZ(0.8deg);
+    }
+    75% {
+      transform: rotateY(-8deg) rotateZ(-0.6deg);
+    }
+  }
+
+  @keyframes xmSoundWave {
+    0% {
+      opacity: 0;
+      transform: translateX(-10px) scale(0.8);
+    }
+    30% {
+      opacity: 0.95;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(22px) scale(1.22);
+    }
+  }
+
 }
