@@ -11,7 +11,7 @@
         data-top="-100px"
         data-bottom="140px"
       >
-        <img [src]="current.banner" [alt]="current.title" />
+        <img [src]="current.banner" [alt]="current.title" fetchpriority="high" loading="eager" />
 
         @if (isXmCreative()) {
           <div class="xm-visor-glow"></div>

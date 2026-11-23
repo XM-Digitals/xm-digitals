@@ -13,9 +13,9 @@ export const MOCK_SERVICE = {
       outcomeDescription: 'Creative: Brand clarity & visual consistency',
       metaTitle: 'Creative Digital Services | Branding, Design & Content | XM Digitals',
       metaDescription: 'XM Creative provides creative digital services including branding, graphic design, video production, and visual content to help businesses build a strong digital presence.',
-      banner: 'assets/images/xm-creative-big.png',
+      banner: 'assets/images/xm-creative-big.webp',
       ctaTitle:'Talk to Our Creative Team',
-      ctaUrl: 'https://wa.me/081806603068?text=XM%20Creative',
+      ctaUrl: 'https://wa.me/6281806603068?text=XM%20Creative',
       titleContent: 'Where Strategic Design Meets Distinctive Brand Experiences',
       content: `
         <p><b>XM Creative</b> helps businesses build strong, recognizable digital presences through brand identity, UI/UX design, and visual systems crafted to engage modern audiences. We focus on clarity, usability, and cohesive aesthetics that elevate how customers perceive and interact with your brand across every touchpoint.</p>
@@ -33,7 +33,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Discuss Brand Identity',
-                  ctaUrl: 'https://wa.me/081806603068?text=Brand%20&%20Identity'
+                  ctaUrl: 'https://wa.me/6281806603068?text=Brand%20&%20Identity'
                 }
               ],
               customBg: null
@@ -44,7 +44,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Explore UI/UX Design',
-                  ctaUrl: 'https://wa.me/081806603068?text=UI/UX%20Design'
+                  ctaUrl: 'https://wa.me/6281806603068?text=UI/UX%20Design'
                 }
               ],
               customBg: null
@@ -55,7 +55,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Build a Design System',
-                  ctaUrl: 'https://wa.me/081806603068?text=Design%20System'
+                  ctaUrl: 'https://wa.me/6281806603068?text=Design%20System'
                 }
               ],
               customBg: null
@@ -66,7 +66,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Start a Creative Campaign',
-                  ctaUrl: 'https://wa.me/081806603068?text=Creative%20Campaign'
+                  ctaUrl: 'https://wa.me/6281806603068?text=Creative%20Campaign'
                 }
               ],
               customBg: null
@@ -83,9 +83,9 @@ export const MOCK_SERVICE = {
       outcomeDescription: 'Tech: Scalable and reliable digital platforms built for long-term growth',
       metaTitle: 'Web & App Development Services | Software House Jakarta | XM Digitals',
       metaDescription: 'XM Tech provides web and app development services for businesses that need reliable and scalable digital platforms. As a software house in Jakarta, we build websites, applications, and custom systems tailored to real business needs.',
-      banner: 'assets/images/xm-tech-big.png',
+      banner: 'assets/images/xm-tech-big.webp',
       ctaTitle:'Talk to Our Tech Team',
-      ctaUrl: 'https://wa.me/081806603068?text=XM%20Tech',
+      ctaUrl: 'https://wa.me/6281806603068?text=XM%20Tech',
       titleContent: 'Where Reliable Engineering Meets Scalable Digital Platforms',
       content: `
         <p><b>XM Tech</b> helps businesses build reliable and scalable digital platforms through web and application development services designed to support real-world business operations and long-term growth. We focus on clean architecture, maintainable systems, and engineering practices that allow digital products to evolve as organizations scale.</p>
@@ -153,7 +153,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Talk With Us',
-                  ctaUrl: 'https://wa.me/081806603068?text=DevOps%20&%20CI/CD'
+                  ctaUrl: 'https://wa.me/6281806603068?text=DevOps%20&%20CI/CD'
                 }
               ],
               customBg: null
@@ -164,7 +164,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Talk With Us',
-                  ctaUrl: 'https://wa.me/081806603068?text=Scalable%20System%20Architecture'
+                  ctaUrl: 'https://wa.me/6281806603068?text=Scalable%20System%20Architecture'
                 }
               ],
               customBg: null
@@ -175,7 +175,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Talk With Us',
-                  ctaUrl: 'https://wa.me/081806603068?text=Shift-Left%20Testing'
+                  ctaUrl: 'https://wa.me/6281806603068?text=Shift-Left%20Testing'
                 }
               ],
               customBg: null
@@ -186,7 +186,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Talk With Us',
-                  ctaUrl: 'https://wa.me/081806603068?text=Performance%20&%20Reliability'
+                  ctaUrl: 'https://wa.me/6281806603068?text=Performance%20&%20Reliability'
                 }
               ],
               customBg: null
@@ -203,7 +203,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Talk With Us',
-                  ctaUrl: 'https://wa.me/081806603068?text=Mission-Critical%20Systems'
+                  ctaUrl: 'https://wa.me/6281806603068?text=Mission-Critical%20Systems'
                 }
               ],
               customBg: null
@@ -214,7 +214,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Talk With Us',
-                  ctaUrl: 'https://wa.me/081806603068?text=Bespoke%20Enterprise%20Platforms'
+                  ctaUrl: 'https://wa.me/6281806603068?text=Bespoke%20Enterprise%20Platforms'
                 }
               ],
               customBg: null
@@ -231,7 +231,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Talk With Us',
-                  ctaUrl: 'https://wa.me/081806603068?text=Anti%20REA%20%26%20Application%20Shielding'
+                  ctaUrl: 'https://wa.me/6281806603068?text=Anti%20REA%20%26%20Application%20Shielding'
                 }
               ],
               customBg: 'bg-smoke'
@@ -242,7 +242,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Talk With Us',
-                  ctaUrl: 'https://wa.me/081806603068?text=Application%20Security%20%26%20SAST%20Auditing'
+                  ctaUrl: 'https://wa.me/6281806603068?text=Application%20Security%20%26%20SAST%20Auditing'
                 }
               ],
               customBg: 'bg-smoke'
@@ -259,9 +259,9 @@ export const MOCK_SERVICE = {
       outcomeDescription: 'AI: Efficiency through intelligent automation',
       metaTitle: 'AI Solutions & Automation Services for Business | XM Digitals',
       metaDescription: 'XM AI provides AI solutions and automation services to help businesses streamline operations, improve efficiency, and scale with confidence.',
-      banner: 'assets/images/xm-ai-big.png',
+      banner: 'assets/images/xm-ai-big.webp',
       ctaTitle:'Talk to Our AI Team',
-      ctaUrl: 'https://wa.me/081806603068?text=XM%20AI',
+      ctaUrl: 'https://wa.me/6281806603068?text=XM%20AI',
       titleContent: 'Where Practical Intelligence Meets Operational Efficiency',
       content: `
         <p><b>XM AI</b> helps businesses automate, optimize, and scale operations through practical artificial intelligence solutions tailored to real-world workflows. Rather than unnecessary complexity, we focus on intelligent systems, automated auditing, and seamless AI integration that eliminate operational bottlenecks.</p>
@@ -280,7 +280,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Deploy an AI Assistant',
-                  ctaUrl: 'https://wa.me/081806603068?text=Custom%20AI%20Agent%20Automation'
+                  ctaUrl: 'https://wa.me/6281806603068?text=Custom%20AI%20Agent%20Automation'
                 }
               ]
             },
@@ -291,7 +291,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Automate Your Workflows',
-                  ctaUrl: 'https://wa.me/081806603068?text=End%20to%20End%20AI%20Workflow%20Automation'
+                  ctaUrl: 'https://wa.me/6281806603068?text=End%20to%20End%20AI%20Workflow%20Automation'
                 }
               ]
             },
@@ -302,7 +302,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Consult AI Architecture',
-                  ctaUrl: 'https://wa.me/081806603068?text=Consult%20AI%20Architecture'
+                  ctaUrl: 'https://wa.me/6281806603068?text=Consult%20AI%20Architecture'
                 }
               ]
             },
@@ -313,7 +313,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Secure Your AI Stack',
-                  ctaUrl: 'https://wa.me/081806603068?text=Secure%20Your%20AI%20Stack'
+                  ctaUrl: 'https://wa.me/6281806603068?text=Secure%20Your%20AI%20Stack'
                 }
               ]
             }
@@ -329,9 +329,9 @@ export const MOCK_SERVICE = {
       outcomeDescription: 'Growth: Visibility, traffic, and conversions',
       metaTitle: 'Digital Growth Services | SEO, SEM & Social Media | XM Digitals',
       metaDescription: 'XM Growth delivers digital growth services including SEO, SEM, and social media marketing to help businesses attract customers and grow online.',
-      banner: 'assets/images/xm-growth-big.png',
+      banner: 'assets/images/xm-growth-big.webp',
       ctaTitle:'Talk to Our Growth Team',
-      ctaUrl: 'https://wa.me/081806603068?text=XM%20Growth',
+      ctaUrl: 'https://wa.me/6281806603068?text=XM%20Growth',
       titleContent: 'Where Data-Driven Strategy Meets Sustainable Digital Growth',
       content: `
         <p><b>XM Growth</b> helps businesses reach, engage, and convert high-intent audiences through structured digital growth strategies engineered for measurable revenue impact. We focus on technical search visibility, conversion optimization, and targeted acquisition channels that turn digital platforms into consistent growth engines.</p>
@@ -350,7 +350,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Boost Organic Visibility',
-                  ctaUrl: 'https://wa.me/081806603068?text=SEO%20Consultation'
+                  ctaUrl: 'https://wa.me/6281806603068?text=SEO%20Consultation'
                 }
               ]
             },
@@ -361,7 +361,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Optimize Your Funnel',
-                  ctaUrl: 'https://wa.me/081806603068?text=CRO%20Consultation'
+                  ctaUrl: 'https://wa.me/6281806603068?text=CRO%20Consultation'
                 }
               ]
             },
@@ -372,7 +372,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Scale Paid Acquisition',
-                  ctaUrl: 'https://wa.me/081806603068?text=Performance%20Marketing%20Consultation'
+                  ctaUrl: 'https://wa.me/6281806603068?text=Performance%20Marketing%20Consultation'
                 }
               ]
             },
@@ -383,7 +383,7 @@ export const MOCK_SERVICE = {
               link: [
                 {
                   ctaTitle: 'Plan Your Growth Strategy',
-                  ctaUrl: 'https://wa.me/081806603068?text=Content%20Strategy%20Consultation'
+                  ctaUrl: 'https://wa.me/6281806603068?text=Content%20Strategy%20Consultation'
                 }
               ]
             }
@@ -442,7 +442,7 @@ export const MOCK_DETAIL_SERVICE = {
       </section>
       `,
       ctaTitle: 'Talk to Our Web Development Team',
-      ctaUrl: 'https://wa.me/081806603068?text=Web%20Development%20Services'
+      ctaUrl: 'https://wa.me/6281806603068?text=Web%20Development%20Services'
     },
     {
       banner: 'assets/images/xm-digitals-cms-development.jpg',
@@ -496,7 +496,7 @@ export const MOCK_DETAIL_SERVICE = {
       </section>
       `,
       ctaTitle: 'Talk to Our CMS Development Team',
-      ctaUrl: 'https://wa.me/081806603068?text=Custom%20CMS%20Development%2020Services'
+      ctaUrl: 'https://wa.me/6281806603068?text=Custom%20CMS%20Development%2020Services'
     },
     {
       banner: 'assets/images/xm-digitals-saas-platform-development.jpg',
@@ -550,7 +550,7 @@ export const MOCK_DETAIL_SERVICE = {
       </section>
       `,
       ctaTitle: 'Talk to Our SaaS Development Team',
-      ctaUrl: 'https://wa.me/081806603068?text=SaaS%20Platform%20Development%20Services'
+      ctaUrl: 'https://wa.me/6281806603068?text=SaaS%20Platform%20Development%20Services'
     },
     {
       banner: 'assets/images/xm-digitals-erp-crm-development.jpg',
@@ -603,7 +603,7 @@ export const MOCK_DETAIL_SERVICE = {
       </section>
       `,
       ctaTitle: 'Talk to Our ERP & CRM Team',
-      ctaUrl: 'https://wa.me/081806603068?text=ERP%20CRM%20Development%20Services'
+      ctaUrl: 'https://wa.me/6281806603068?text=ERP%20CRM%20Development%20Services'
     },
     {
       banner: 'assets/images/xm-digitals-mobile-native-apps-development.jpg',
@@ -662,7 +662,7 @@ export const MOCK_DETAIL_SERVICE = {
       </section>
       `,
       ctaTitle: 'Talk to Our Mobile App Team',
-      ctaUrl: 'https://wa.me/081806603068?text=Mobile%20Native%20App%20Development%20Services'
+      ctaUrl: 'https://wa.me/6281806603068?text=Mobile%20Native%20App%20Development%20Services'
     },
     {
       banner: 'assets/images/xm-digitals-mobile-hybrid-apps-development.jpg',
@@ -721,7 +721,7 @@ export const MOCK_DETAIL_SERVICE = {
       </section>
       `,
       ctaTitle: 'Talk to Our Mobile App Team',
-      ctaUrl: 'https://wa.me/081806603068?text=Mobile%20Hybrid%20App%20Development%20Services'
+      ctaUrl: 'https://wa.me/6281806603068?text=Mobile%20Hybrid%20App%20Development%20Services'
     }
   ]
 }
