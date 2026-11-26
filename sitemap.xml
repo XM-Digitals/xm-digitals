@@ -2,128 +2,140 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://xmdigitals.com/</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/about-us</loc>
-    <lastmod>2026-11-23</lastmod>
+    <loc>https://xmdigitals.com/about-us/</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/contact-us</loc>
-    <lastmod>2026-11-23</lastmod>
+    <loc>https://xmdigitals.com/contact-us/</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/sitemap</loc>
-    <lastmod>2026-11-23</lastmod>
+    <loc>https://xmdigitals.com/sitemap/</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/insight</loc>
-    <lastmod>2026-11-23</lastmod>
+    <loc>https://xmdigitals.com/insight/</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/services/xm-creative</loc>
-    <lastmod>2026-11-23</lastmod>
+    <loc>https://xmdigitals.com/services/xm-creative/</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/services/xm-tech</loc>
-    <lastmod>2026-11-23</lastmod>
+    <loc>https://xmdigitals.com/services/xm-tech/</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/services/xm-ai</loc>
-    <lastmod>2026-11-23</lastmod>
+    <loc>https://xmdigitals.com/services/xm-ai/</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/services/xm-growth</loc>
-    <lastmod>2026-11-23</lastmod>
+    <loc>https://xmdigitals.com/services/xm-growth/</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/services/xm-tech/web-development-jakarta</loc>
-    <lastmod>2026-11-23</lastmod>
+    <loc>https://xmdigitals.com/services/xm-tech/web-development-jakarta/</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/services/xm-tech/cms-development</loc>
-    <lastmod>2026-11-23</lastmod>
+    <loc>https://xmdigitals.com/services/xm-tech/cms-development/</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/services/xm-tech/saas-platform</loc>
-    <lastmod>2026-11-23</lastmod>
+    <loc>https://xmdigitals.com/services/xm-tech/saas-platform/</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/services/xm-tech/erp-crm</loc>
-    <lastmod>2026-11-23</lastmod>
+    <loc>https://xmdigitals.com/services/xm-tech/erp-crm/</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/services/xm-tech/mobile-native-apps</loc>
-    <lastmod>2026-11-23</lastmod>
+    <loc>https://xmdigitals.com/services/xm-tech/mobile-native-apps/</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/services/xm-tech/mobile-hybrid-apps</loc>
-    <lastmod>2026-11-23</lastmod>
+    <loc>https://xmdigitals.com/services/xm-tech/mobile-hybrid-apps/</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/insight/anti-rea-mitigation-strategies-across-frontend-and-backend</loc>
+    <loc>https://xmdigitals.com/insight/anti-rea-mitigation-strategies-across-frontend-and-backend/</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/insight/building-scalable-mobile-apps-with-server-driven-ui-sdui</loc>
+    <loc>https://xmdigitals.com/insight/building-scalable-mobile-apps-with-server-driven-ui-sdui/</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/insight/serverless-architecture-patterns-for-scalable-cloud-native-applications</loc>
+    <loc>https://xmdigitals.com/insight/serverless-architecture-patterns-for-scalable-cloud-native-applications/</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/insight/shift-left-testing-mission-critical-systems</loc>
+    <loc>https://xmdigitals.com/insight/shift-left-testing-mission-critical-systems/</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/insight/computer-vision-in-retail-and-hospitality-space-intelligence</loc>
+    <loc>https://xmdigitals.com/insight/computer-vision-in-retail-and-hospitality-space-intelligence/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://xmdigitals.com/insight/technical-seo-and-hybrid-rendering-architecture-for-scalable-growth</loc>
+    <loc>https://xmdigitals.com/insight/technical-seo-and-hybrid-rendering-architecture-for-scalable-growth/</loc>
     <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xmdigitals.com/project/paramount-enterprise-international/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xmdigitals.com/project/basf-indonesia/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
