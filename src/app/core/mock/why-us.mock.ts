@@ -1,6 +1,6 @@
-import { Title } from "@angular/platform-browser";
+import { GetWhyUs } from "../model/why-us.model"
 
-export const MOCK_WHYUS = {
+export const MOCK_WHYUS: GetWhyUs = {
   status: {
     code: 0,
     message: 'SUCCESS',

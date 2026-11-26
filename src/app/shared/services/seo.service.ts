@@ -43,9 +43,9 @@ export class SeoService {
     const routerPath = this.router.url.split('?')[0].split('#')[0];
     const activePath = (routerPath && routerPath !== '/') ? routerPath : domPath;
 
-    // Normalisasi: root tetap '/', rute lain tanpa trailing slash
-    const cleanPath = activePath === '/' ? '/' : activePath.replace(/\/+$/, '');
-    const dynamicUrl = `${this.SITE_URL}${cleanPath}`;
+    // Normalisasi: semua rute (root maupun sub-halaman) diakhiri trailing slash '/'
+    const normalizedPath = activePath === '/' ? '/' : `${activePath.replace(/\/+$/, '')}/`;
+    const dynamicUrl = `${this.SITE_URL}${normalizedPath}`;
     const finalUrl = data.url ? this.normalizeUrl(data.url) : dynamicUrl;
 
     // 2. Format Title
@@ -55,13 +55,13 @@ export class SeoService {
     // 3. Update Meta Tags (OG, Twitter, Standard)
     this.updateMetaTags({ ...data, url: finalUrl }, fullTitle);
 
-    // 4. Update Canonical (100% sinkron dengan sitemap.xml)
+    // 4. Update Canonical (100% sinkron dengan sitemap.xml & GitHub Pages trailing slash)
     this.updateCanonical(finalUrl);
 
     // 5. Update JSON-LD (pertahankan schema homepage jika di root '/')
     if (data.schema) {
       this.updateJsonLd(data.schema);
-    } else if (cleanPath !== '/') {
+    } else if (normalizedPath !== '/') {
       this.removeJsonLd();
     }
   }
@@ -136,7 +136,10 @@ export class SeoService {
 
   private normalizeUrl(url: string): string {
     const clean = url.split('?')[0].split('#')[0];
-    return clean === `${this.SITE_URL}/` ? clean : clean.replace(/\/+$/, '');
+    if (clean === this.SITE_URL || clean === `${this.SITE_URL}/`) {
+      return `${this.SITE_URL}/`;
+    }
+    return `${clean.replace(/\/+$/, '')}/`;
   }
 
   private formatTitle(pageTitle: string): string {

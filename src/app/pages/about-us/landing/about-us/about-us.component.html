@@ -83,7 +83,7 @@
       </div>
     </div>
   </div>
-  <!-- <div class="testimonial-area-5 space overflow-hidden mt-30">
+  <div class="testimonial-area-5 space overflow-hidden mt-30">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6">
@@ -92,98 +92,75 @@
           </div>
         </div>
       </div>
-      <div class="row global-carousel testi-slider5" data-slide-show="3" data-dots="true" data-xl-dots="true" data-ml-dots="true">
-        <div class="col-lg-4">
-          <div class="testi-box style5">
-            <div class="box_img">
-              <img src="https://asset.kompas.com/crops/fqLEu_LX1Nlf9be2u5SCHi_Sdkc=/0x0:1200x800/1200x800/data/photo/2026/06/07/6a258a3806ad5.jpg" alt="img">
+
+      <div
+        class="projects-carousel-viewport"
+        [class.is-static]="maxIndex === 0"
+        (mouseenter)="onMouseEnter()"
+        (mouseleave)="onMouseLeave()"
+        (pointerdown)="onPointerDown($event)"
+        (pointermove)="onPointerMove($event)"
+        (pointerup)="onPointerUp()"
+        (pointercancel)="onPointerUp()"
+      >
+        <div
+          class="projects-carousel-track"
+          [class.is-dragging]="isDragging"
+          [class.is-centered]="projects.length <= slidesPerView"
+          [style.transform]="trackTransform"
+          [style.--slides-per-view]="slidesPerView"
+        >
+          @for (project of projects; track $index) {
+            <div class="projects-carousel-slide">
+              <div class="testi-box style5">
+                <div class="box_img">
+                  <img [src]="project.image" [alt]="project.imageAlt" draggable="false">
+                </div>
+                <div class="testi-box_profile mt-30">
+                  <h3 class="testi-box_name">{{ project.company }}</h3>
+                  <span class="testi-box_desig">{{ project.category }}</span>
+                </div>
+                <div class="testi-box_profile mt-30">
+                  <h4 class="testi-box_name">{{ project.challengeTitle }}</h4>
+                  <p>{{ project.challengeIntro }}</p>
+                  <ul>
+                    @for (item of project.challenges; track $index) {
+                      <li>{{ item }}</li>
+                    }
+                  </ul>
+                  <a [routerLink]="['/project', project.slug]" class="link-btn mt-30">
+                    <span class="link-effect">
+                      <span class="effect-1">VIEW DETAILS</span>
+                      <span class="effect-1">VIEW DETAILS</span>
+                    </span>
+                    <img src="assets/images/icon/arrow-left-top.svg" alt="icon">
+                  </a>
+                </div>
+              </div>
             </div>
-            <div class="testi-box_profile mt-30">
-              <h3 class="testi-box_name">PT Paramount Enterprise International</h3>
-              <span class="testi-box_desig">Bespoke Enterprise Solutions</span>
-            </div>
-            <div class="testi-box_profile mt-30">
-              <h4 class="testi-box_name">Key Business Challenge</h4>
-              <p>The tax and accounting division at Angkasa Pura I faced a growing challenge:</p>
-              <ul>
-                <li>Manually handling 380 vendor-related documents each month</li>
-                <li>Processing important data such as contracts, SPKs, POs, invoices, and tax numbers</li>
-                <li>Managing data from 22 vendors with limited scalability</li>
-                <li>Time-consuming and error-prone verification processes</li>
-                <li>To ensure data accuracy and operational efficiency, a smart, automated solution was urgently needed.</li>
-              </ul>
-              <a href="service-details.html" class="link-btn mt-30" tabindex="-1">
-                <span class="link-effect">
-                  <span class="effect-1">VIEW DETAILS</span>
-                  <span class="effect-1">VIEW DETAILS</span>
-                </span>
-                <img src="assets/images/icon/arrow-left-top.svg" alt="icon">
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="testi-box style5">
-            <div class="box_img">
-              <img src="https://asset.kompas.com/crops/fqLEu_LX1Nlf9be2u5SCHi_Sdkc=/0x0:1200x800/1200x800/data/photo/2026/06/07/6a258a3806ad5.jpg" alt="img">
-            </div>
-            <div class="testi-box_profile mt-30">
-              <h3 class="testi-box_name">PT Paramount Enterprise International</h3>
-              <span class="testi-box_desig">Bespoke Enterprise Solutions</span>
-            </div>
-            <div class="testi-box_profile mt-30">
-              <h4 class="testi-box_name">Key Business Challenge</h4>
-              <p>The tax and accounting division at Angkasa Pura I faced a growing challenge:</p>
-              <ul>
-                <li>Manually handling 380 vendor-related documents each month</li>
-                <li>Processing important data such as contracts, SPKs, POs, invoices, and tax numbers</li>
-                <li>Managing data from 22 vendors with limited scalability</li>
-                <li>Time-consuming and error-prone verification processes</li>
-                <li>To ensure data accuracy and operational efficiency, a smart, automated solution was urgently needed.</li>
-              </ul>
-              <a href="service-details.html" class="link-btn mt-30" tabindex="-1">
-                <span class="link-effect">
-                  <span class="effect-1">VIEW DETAILS</span>
-                  <span class="effect-1">VIEW DETAILS</span>
-                </span>
-                <img src="assets/images/icon/arrow-left-top.svg" alt="icon">
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="testi-box style5">
-            <div class="box_img">
-              <img src="https://asset.kompas.com/crops/fqLEu_LX1Nlf9be2u5SCHi_Sdkc=/0x0:1200x800/1200x800/data/photo/2026/06/07/6a258a3806ad5.jpg" alt="img">
-            </div>
-            <div class="testi-box_profile mt-30">
-              <h3 class="testi-box_name">PT Paramount Enterprise International</h3>
-              <span class="testi-box_desig">Bespoke Enterprise Solutions</span>
-            </div>
-            <div class="testi-box_profile mt-30">
-              <h4 class="testi-box_name">Key Business Challenge</h4>
-              <p>The tax and accounting division at Angkasa Pura I faced a growing challenge:</p>
-              <ul>
-                <li>Manually handling 380 vendor-related documents each month</li>
-                <li>Processing important data such as contracts, SPKs, POs, invoices, and tax numbers</li>
-                <li>Managing data from 22 vendors with limited scalability</li>
-                <li>Time-consuming and error-prone verification processes</li>
-                <li>To ensure data accuracy and operational efficiency, a smart, automated solution was urgently needed.</li>
-              </ul>
-              <a href="service-details.html" class="link-btn mt-30" tabindex="-1">
-                <span class="link-effect">
-                  <span class="effect-1">VIEW DETAILS</span>
-                  <span class="effect-1">VIEW DETAILS</span>
-                </span>
-                <img src="assets/images/icon/arrow-left-top.svg" alt="icon">
-              </a>
-            </div>
-          </div>
+          }
         </div>
       </div>
+
+      @if (dots.length > 1) {
+        <div class="projects-carousel-footer">
+          <ul class="carousel-dots" role="tablist" aria-label="Our Projects pagination">
+            @for (dot of dots; track dot) {
+              <li [class.is-active]="dot === currentIndex">
+                <button
+                  type="button"
+                  (click)="goToSlide(dot)"
+                  [attr.aria-label]="'Slide ' + (dot + 1)"
+                  [attr.aria-selected]="dot === currentIndex"
+                ></button>
+              </li>
+            }
+          </ul>
+        </div>
+      }
     </div>
-  </div> -->
-  <div class="client-area-1 overflow-hidden space">
+  </div>
+  <!-- <div class="client-area-1 overflow-hidden space">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-xl-12">
@@ -209,5 +186,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>

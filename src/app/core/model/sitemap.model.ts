@@ -1,3 +1,11 @@
+export interface GetSitemap {
+  status: {
+    code: number;
+    message: string;
+  };
+  data: SitemapGroup[];
+}
+
 export interface SitemapItem {
   label: string;
   route: string;
@@ -7,12 +15,4 @@ export interface SitemapItem {
 export interface SitemapGroup {
   category: string;
   items: SitemapItem[];
-}
-
-export interface GetSitemap {
-  status: {
-    code: number;
-    message: string;
-  };
-  data: SitemapGroup[];
 }

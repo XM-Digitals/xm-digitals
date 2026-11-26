@@ -1,0 +1,61 @@
+<div class="landing-detail-project">
+  <div class="breadcumb-wrapper style2 bg-smoke">
+    <div class="container-fluid">
+      <div class="breadcumb-content">
+        <ul class="breadcumb-menu">
+          <li><a [routerLink]="'/'">Home</a></li>
+          <li><a [routerLink]="'/about-us'">About Us</a></li>
+          <li>{{ project?.company }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-area-13 overflow-hidden space">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          @if (project) {
+            <div class="title-area mb-40">
+              <span class="sub-title">{{ project.category }}</span>
+              <h1 class="sec-title mt-10">{{ project.company }}</h1>
+            </div>
+
+            @if (project.banner || project.image) {
+              <div class="project-banner mb-40">
+                <img [src]="project.banner || project.image" [alt]="project.imageAlt" class="w-100" />
+              </div>
+            }
+
+            <div class="title-area mb-0">
+              @if (project.content) {
+                <div class="content" [innerHtml]="project.content"></div>
+              } @else {
+                <div class="content">
+                  <h3>{{ project.challengeTitle }}</h3>
+                  <p>{{ project.challengeIntro }}</p>
+                  <ul>
+                    @for (item of project.challenges; track $index) {
+                      <li>{{ item }}</li>
+                    }
+                  </ul>
+                </div>
+              }
+
+              @if (project.ctaTitle) {
+                <div class="btn-group mt-40">
+                  <a target="_blank" [href]="project.ctaUrl" class="btn style2">
+                    <span class="link-effect">
+                      <span class="effect-1">{{ project.ctaTitle }}</span>
+                      <span class="effect-1">{{ project.ctaTitle }}</span>
+                    </span>
+                  </a>
+                </div>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

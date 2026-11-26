@@ -54,7 +54,22 @@ export const routes: Routes = [
       {
         path: 'about-us',
         loadComponent: () =>
-        import('./pages/about-us/landing/about-us/about-us.component').then(c => c.AboutUsComponent),
+          import('./pages/about-us/landing/about-us/about-us.component').then(c => c.AboutUsComponent),
+      },
+      {
+        path: 'project',
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: '/about-us',
+          },
+          {
+            path: ':slug',
+            loadComponent: () =>
+              import('./pages/about-us/landing/detail-project/detail-project.component').then(c => c.DetailProjectComponent),
+          },
+        ]
       },
       {
         path: 'contact-us',

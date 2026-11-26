@@ -1,4 +1,6 @@
-export const LIST_MOCK_INSIGHT = {
+import { GetListInsight, GetInsight } from "../model/insight.model";
+
+export const LIST_MOCK_INSIGHT: GetListInsight = {
   status: {
     code: 0,
     message: 'SUCCESS',
@@ -55,7 +57,7 @@ export const LIST_MOCK_INSIGHT = {
   ]
 };
 
-export const MOCK_INSIGHT = {
+export const MOCK_INSIGHT: GetInsight = {
   status: {
     code: 0,
     message: 'SUCCESS',

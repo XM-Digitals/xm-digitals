@@ -1,11 +1,22 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
 import { MOCK_SERVICE, MOCK_DETAIL_SERVICE } from './core/mock/service.mock';
 import { LIST_MOCK_INSIGHT } from './core/mock/insight.mock';
+import { MOCK_PROJECTS } from './core/mock/project.mock';
 
 export const serverRoutes: ServerRoute[] = [
   { path: '', renderMode: RenderMode.Prerender },
   { path: 'insight', renderMode: RenderMode.Prerender },
   { path: 'about-us', renderMode: RenderMode.Prerender },
+  { path: 'project', renderMode: RenderMode.Client },
+  {
+    path: 'project/:slug',
+    renderMode: RenderMode.Prerender,
+    async getPrerenderParams() {
+      return MOCK_PROJECTS.data.map(project => ({
+        slug: project.slug,
+      }));
+    },
+  },
   { path: 'contact-us', renderMode: RenderMode.Prerender },
   { path: 'sitemap', renderMode: RenderMode.Prerender },
   { path: 'error-404', renderMode: RenderMode.Prerender },

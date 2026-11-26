@@ -1,6 +1,6 @@
-import { Title } from "@angular/platform-browser";
+import { GetService, GetDetailService } from "../model/service.model"
 
-export const MOCK_SERVICE = {
+export const MOCK_SERVICE: GetService = {
   status: {
     code: 0,
     message: 'SUCCESS',
@@ -395,7 +395,7 @@ export const MOCK_SERVICE = {
   ]
 }
 
-export const MOCK_DETAIL_SERVICE = {
+export const MOCK_DETAIL_SERVICE: GetDetailService = {
   status: {
     code: 0,
     message: 'SUCCESS',

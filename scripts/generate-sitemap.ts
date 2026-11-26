@@ -2,6 +2,7 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { MOCK_SERVICE, MOCK_DETAIL_SERVICE } from '../src/app/core/mock/service.mock';
 import { LIST_MOCK_INSIGHT } from '../src/app/core/mock/insight.mock';
+import { MOCK_PROJECTS } from '../src/app/core/mock/project.mock';
 
 const BASE_URL = 'https://xmdigitals.com';
 const TODAY = new Date().toISOString().split('T')[0];
@@ -11,6 +12,19 @@ interface SitemapEntry {
   lastmod?: string;
   changefreq: 'daily' | 'weekly' | 'monthly' | 'yearly';
   priority: string;
+}
+
+/**
+ * Pastikan semua URL non-root selalu memiliki trailing slash (/)
+ * agar selaras dengan perilaku static hosting (GitHub Pages) & menghindari 301 redirect pada sitemap.
+ */
+function formatLoc(baseUrl: string, path: string): string {
+  const cleanBase = baseUrl.replace(/\/+$/, '');
+  if (!path || path === '/') {
+    return `${cleanBase}/`;
+  }
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+  return `${cleanBase}${normalizedPath.replace(/\/+$/, '')}/`;
 }
 
 const staticPages: SitemapEntry[] = [
@@ -37,7 +51,7 @@ const detailServicePages: SitemapEntry[] = MOCK_DETAIL_SERVICE.data.map((detail)
   priority: '0.9',
 }));
 
-// 4. Insight Articles (/insight/:slug) -> Menggunakan tanggal asli artikel sebagai lastmod
+// 3. Insight Articles (/insight/:slug) -> Menggunakan tanggal asli artikel sebagai lastmod
 const insightPages: SitemapEntry[] = LIST_MOCK_INSIGHT.data.map((article) => ({
   loc: `/insight/${article.slug}`,
   lastmod: article.date || TODAY,
@@ -45,11 +59,20 @@ const insightPages: SitemapEntry[] = LIST_MOCK_INSIGHT.data.map((article) => ({
   priority: '0.8',
 }));
 
+// 4. Projects (/project/:slug)
+const projectPages: SitemapEntry[] = MOCK_PROJECTS.data.map((project) => ({
+  loc: `/project/${project.slug}`,
+  lastmod: TODAY,
+  changefreq: 'monthly',
+  priority: '0.7',
+}));
+
 const allEntries: SitemapEntry[] = [
   ...staticPages,
   ...serviceClusterPages,
   ...detailServicePages,
   ...insightPages,
+  ...projectPages,
 ];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -57,7 +80,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 ${allEntries
   .map(
     (entry) => `  <url>
-    <loc>${BASE_URL}${entry.loc}</loc>${entry.lastmod ? `\n    <lastmod>${entry.lastmod}</lastmod>` : ''}
+    <loc>${formatLoc(BASE_URL, entry.loc)}</loc>${entry.lastmod ? `\n    <lastmod>${entry.lastmod}</lastmod>` : ''}
     <changefreq>${entry.changefreq}</changefreq>
     <priority>${entry.priority}</priority>
   </url>`
