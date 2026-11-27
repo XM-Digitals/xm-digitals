@@ -3,17 +3,18 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 import { SeoService } from '../../../../shared/services/seo.service';
 import { MOCK_PROJECTS } from '../../../../core/mock/project.mock';
-import { Project } from '../../../../core/model/project.model';
+import { DetailProject } from '../../../../core/model/project.model';
+import { HeroDetailComponent } from '../../components/hero-detail/hero-detail.component';
 
 @Component({
   selector: 'app-detail-project',
-  imports: [RouterLink],
+  imports: [RouterLink, HeroDetailComponent],
   templateUrl: './detail-project.component.html',
   styleUrl: './detail-project.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
 export class DetailProjectComponent implements OnInit {
-  project?: Project;
+  detailProject?: DetailProject;
 
   constructor(
     private seo: SeoService,
@@ -22,25 +23,26 @@ export class DetailProjectComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       const slug = params.get('slug');
 
-      this.project = MOCK_PROJECTS.data.find(item => item.slug === slug);
+      this.detailProject = MOCK_PROJECTS.data.find((item) => item.slug === slug);
 
-      if (!this.project) {
+      if (!this.detailProject) {
         this.router.navigate(['/about-us']);
         return;
       }
 
-      this.seoUpdate(this.project);
+      this.seoUpdate(this.detailProject);
     });
   }
 
-  private seoUpdate(project: Project): void {
-    const pageUrl = `https://xmdigitals.com/project/${project.slug}`;
-    const pageTitle = project.metaTitle || `${project.company} | XM Digitals`;
-    const pageDesc = project.metaDescription || project.challengeIntro;
-    const rawImage = project.banner || project.image || 'xm-digitals-center.png';
+  private seoUpdate(detailProject: DetailProject): void {
+    const pageUrl = `https://xmdigitals.com/project/${detailProject.slug}/`;
+    const pageTitle = detailProject.metaTitle || `${detailProject.company} | XM Digitals`;
+    const pageDesc = detailProject.metaDescription || detailProject.challengeIntro;
+    const rawImage =
+      detailProject.bannerDetail || detailProject.banner || 'xm-digitals-center.png';
     const pageImage = rawImage.startsWith('http')
       ? rawImage
       : `https://xmdigitals.com/assets/images/${rawImage.replace(/^\/?(assets\/images\/)?/, '')}`;
@@ -68,12 +70,12 @@ export class DetailProjectComponent implements OnInit {
             '@type': 'ListItem',
             position: 2,
             name: 'About Us',
-            item: 'https://xmdigitals.com/about-us',
+            item: 'https://xmdigitals.com/about-us/',
           },
           {
             '@type': 'ListItem',
             position: 3,
-            name: project.company,
+            name: detailProject.company,
             item: pageUrl,
           },
         ],

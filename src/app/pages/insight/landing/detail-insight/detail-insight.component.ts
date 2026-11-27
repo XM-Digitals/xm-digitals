@@ -100,7 +100,7 @@ export class DetailInsightComponent implements OnInit {
             "@type": "ListItem",
             "position": 2,
             "name": "Insights",
-            "item": "https://xmdigitals.com/insight"
+            "item": "https://xmdigitals.com/insight/"
           },
           {
             "@type": "ListItem",

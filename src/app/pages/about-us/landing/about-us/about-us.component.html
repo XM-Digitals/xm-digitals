@@ -106,29 +106,24 @@
         <div
           class="projects-carousel-track"
           [class.is-dragging]="isDragging"
-          [class.is-centered]="projects.length <= slidesPerView"
+          [class.is-centered]="detailProjects.length <= slidesPerView"
           [style.transform]="trackTransform"
           [style.--slides-per-view]="slidesPerView"
         >
-          @for (project of projects; track $index) {
+          @for (detailProjects of detailProjects; track $index) {
             <div class="projects-carousel-slide">
               <div class="testi-box style5">
                 <div class="box_img">
-                  <img [src]="project.image" [alt]="project.imageAlt" draggable="false">
+                  <img [src]="detailProjects.banner" [alt]="detailProjects.bannerAlt" draggable="false">
                 </div>
                 <div class="testi-box_profile mt-30">
-                  <h3 class="testi-box_name">{{ project.company }}</h3>
-                  <span class="testi-box_desig">{{ project.category }}</span>
+                  <h3 class="testi-box_name">{{ detailProjects.company }}</h3>
+                  <span class="testi-box_desig">{{ detailProjects.category }}</span>
                 </div>
                 <div class="testi-box_profile mt-30">
-                  <h4 class="testi-box_name">{{ project.challengeTitle }}</h4>
-                  <p>{{ project.challengeIntro }}</p>
-                  <ul>
-                    @for (item of project.challenges; track $index) {
-                      <li>{{ item }}</li>
-                    }
-                  </ul>
-                  <a [routerLink]="['/project', project.slug]" class="link-btn mt-30">
+                  <h4 class="testi-box_name">{{ detailProjects.challengeTitle }}</h4>
+                  <p>{{ detailProjects.challengeIntro }}</p>
+                  <a [routerLink]="['/project', detailProjects.slug]" class="link-btn mt-30">
                     <span class="link-effect">
                       <span class="effect-1">VIEW DETAILS</span>
                       <span class="effect-1">VIEW DETAILS</span>

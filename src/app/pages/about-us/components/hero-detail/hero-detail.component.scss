@@ -1,0 +1,49 @@
+.hero-wrapper {
+  &.detail-project {
+    .bg-title {
+      background-color: var(--white-color) !important;
+
+      h1 {
+        font-size: 54px;
+
+        @media (max-width: 991px) {
+          font-size: 36px;
+        }
+      }
+    }
+    .hero-style7 {
+      padding: 80px 0 70px;
+
+      @media (max-width: 991px) {
+        padding: 30px 0 30px;
+      }
+
+      .hero-text {
+        max-width: 760px;
+      }
+
+      .insight-date {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: #6b7280;
+      }
+    }
+    .hero-7-thumb {
+      text-align: center;
+      
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .insight-image-caption {
+      color: var(--light-color);
+      font-style: italic;
+      text-align: center;
+      margin: 15px;
+      font-size: 14px;
+    }
+  }
+}

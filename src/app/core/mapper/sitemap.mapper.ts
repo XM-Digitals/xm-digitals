@@ -20,6 +20,7 @@ export class SitemapMapper implements Mapper<string, SitemapGroup[]> {
     'erp',
     'crm',
     'sdui',
+    'basf',
   ];
 
   mapFrom(xmlText: string): SitemapGroup[] {
@@ -37,6 +38,7 @@ export class SitemapMapper implements Mapper<string, SitemapGroup[]> {
     const urlNodes = Array.from(xmlDoc.getElementsByTagName('url'));
     const mainPages: SitemapItem[] = [];
     const services: SitemapItem[] = [];
+    const projects: SitemapItem[] = [];
     const insights: SitemapItem[] = [];
 
     for (const node of urlNodes) {
@@ -55,6 +57,8 @@ export class SitemapMapper implements Mapper<string, SitemapGroup[]> {
 
       if (pathname.startsWith('/services/')) {
         services.push(item);
+      } else if (pathname.startsWith('/project/')) {
+        projects.push(item);
       } else if (pathname.startsWith('/insight/') || pathname.startsWith('/insights/')) {
         insights.push(item);
       } else {
@@ -68,6 +72,7 @@ export class SitemapMapper implements Mapper<string, SitemapGroup[]> {
     const groups: SitemapGroup[] = [];
     if (mainPages.length) groups.push({ category: 'Main Pages', items: mainPages });
     if (services.length) groups.push({ category: 'Services', items: services });
+    if (projects.length) groups.push({ category: 'Projects', items: projects });
     if (insights.length) groups.push({ category: 'Insights', items: insights });
 
     return groups.length ? groups : this.getFallbackGroups();
@@ -79,8 +84,8 @@ export class SitemapMapper implements Mapper<string, SitemapGroup[]> {
         category: 'Main Pages',
         items: [
           { label: 'Home', route: '/' },
-          { label: 'About Us', route: '/about' },
-          { label: 'Contact Us', route: '/contact' },
+          { label: 'About Us', route: '/about-us' },
+          { label: 'Contact Us', route: '/contact-us' },
         ],
       },
       {
@@ -96,18 +101,24 @@ export class SitemapMapper implements Mapper<string, SitemapGroup[]> {
   }
 
   private extractPathname(loc: string): string {
+    let rawPath = '/';
     try {
       const urlObj = new URL(loc);
-      return urlObj.pathname === '' ? '/' : urlObj.pathname;
+      rawPath = urlObj.pathname || '/';
     } catch {
-      return loc.startsWith('/') ? loc : `/${loc}`;
+      rawPath = loc.startsWith('/') ? loc : `/${loc}`;
     }
+
+    // Normalisasi agar root tetap '/' dan sub-halaman tanpa trailing slash
+    // sehingga selaras dengan Angular Router & pengecekan '/sitemap'
+    if (rawPath === '/') return '/';
+    return rawPath.replace(/\/+$/, '') || '/';
   }
 
   private formatRouteLabel(pathname: string): string {
     if (pathname === '/') return 'Home';
 
-    const cleanSegment = pathname.replace(/\/$/, '').split('/').pop() || pathname;
+    const cleanSegment = pathname.replace(/\/+$/, '').split('/').pop() || pathname;
 
     return cleanSegment
       .split('-')

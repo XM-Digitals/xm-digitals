@@ -3,20 +3,33 @@ export interface GetProjects {
     code: number;
     message: string;
   };
-  data: Project[];
+  data: DetailProject[];
 }
 
-export interface Project {
+export interface DetailProject {
   slug: string;
-  image: string;
-  imageAlt: string;
+  banner: string;
+  bannerAlt: string;
+  bannerDetail: string;
   company: string;
   category: string;
+
+  // Challenge Section
   challengeTitle: string;
   challengeIntro: string;
   challenges: string[];
+
+  // Solution & Architecture Section
+  solutionTitle?: string;
+  solutionIntro?: string;
+  solutions?: string[];
+
+  // Business Impact Section
+  impactTitle?: string;
+  impacts?: string[];
+
+  // Navigation, SEO & CTA
   link: string;
-  banner?: string;
   metaTitle?: string;
   metaDescription?: string;
   content?: string;

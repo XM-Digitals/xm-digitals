@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 
 import { SeoService } from '../../../../shared/services/seo.service';
 import { MOCK_PROJECTS } from '../../../../core/mock/project.mock';
-import { Project } from '../../../../core/model/project.model';
+import { DetailProject } from '../../../../core/model/project.model';
 
 @Component({
   selector: 'app-about-us',
@@ -27,7 +27,7 @@ export class AboutUsComponent implements OnInit, OnDestroy {
     { top: '72%', left: '42%', delay: '2.7s', duration: '4.2s', maxOpacity: 0.32 }
   ];
 
-  readonly projects: Project[] = MOCK_PROJECTS.data;
+  readonly detailProjects: DetailProject[] = MOCK_PROJECTS.data;
 
   // Carousel config (ubah autoSlide ke false untuk mematikan auto slide)
   readonly carouselConfig = {
@@ -120,7 +120,7 @@ export class AboutUsComponent implements OnInit, OnDestroy {
   }
 
   get maxIndex(): number {
-    return Math.max(0, this.projects.length - this.slidesPerView);
+    return Math.max(0, this.detailProjects.length - this.slidesPerView);
   }
 
   get dots(): number[] {

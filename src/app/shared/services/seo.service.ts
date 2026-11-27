@@ -124,7 +124,8 @@ export class SeoService {
       script.type = 'application/ld+json';
       this.dom.head.appendChild(script);
     }
-    script.text = JSON.stringify(schema);
+    const normalizedSchema = this.normalizeSchemaUrls(schema);
+    script.text = JSON.stringify(normalizedSchema);
   }
 
   private removeJsonLd(): void {
@@ -140,6 +141,46 @@ export class SeoService {
       return `${this.SITE_URL}/`;
     }
     return `${clean.replace(/\/+$/, '')}/`;
+  }
+
+  private normalizeSchemaUrls<T>(data: T): T {
+    if (typeof data === 'string') {
+      return this.normalizeSchemaString(data) as unknown as T;
+    }
+    if (Array.isArray(data)) {
+      return data.map(item => this.normalizeSchemaUrls(item)) as unknown as T;
+    }
+    if (data !== null && typeof data === 'object') {
+      const normalizedObj: Record<string, any> = {};
+      for (const [key, value] of Object.entries(data)) {
+        normalizedObj[key] = this.normalizeSchemaUrls(value);
+      }
+      return normalizedObj as T;
+    }
+    return data;
+  }
+
+  private normalizeSchemaString(value: string): string {
+    if (!value.startsWith(this.SITE_URL)) {
+      return value;
+    }
+
+    const [baseWithQuery, hash] = value.split('#');
+    const [pathname, query] = baseWithQuery.split('?');
+
+    // Pertahankan root '/', URL yang sudah berakhiran '/', atau URL file asset (.png, .webp, .jpg, dll.)
+    if (
+      pathname === this.SITE_URL ||
+      pathname === `${this.SITE_URL}/` ||
+      pathname.endsWith('/') ||
+      /\.[a-zA-Z0-9]+$/.test(pathname)
+    ) {
+      return value;
+    }
+
+    const normalizedPath = `${pathname}/`;
+    const withQuery = query ? `${normalizedPath}?${query}` : normalizedPath;
+    return hash ? `${withQuery}#${hash}` : withQuery;
   }
 
   private formatTitle(pageTitle: string): string {
